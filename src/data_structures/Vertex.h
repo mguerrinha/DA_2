@@ -42,6 +42,8 @@ public:
 
     Edge * addEdge(Vertex *dest, double dist);
 
+    Edge* findEdge(Vertex* dest);
+
     bool removeEdge(int in);
 
     void removeOutgoingEdges();

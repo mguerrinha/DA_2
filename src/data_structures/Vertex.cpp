@@ -106,3 +106,12 @@ void Vertex::deleteEdge(Edge *edge) {
     }
     delete edge;
 }
+
+Edge* Vertex::findEdge(Vertex* dest) {
+    for (Edge* edge : adj) {
+        if (edge->getDest() == dest) {
+            return edge;
+        }
+    }
+    return nullptr;
+}
