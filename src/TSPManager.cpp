@@ -98,3 +98,9 @@ double TSPManager::tsp_backtracking(int idx) {
 
     return min_cost;
 }
+
+/*
+A ideia do backtracking para o TSP seria que inicialmente podemos começar em qualquer ponto dado que o grafo é fully-connected, logo pelo que percebi, o min cost será sempre o mesmo
+ apenas teres um path diferente, a ideia seria então percorrer os pontos adjacentes ao selecionado conforme vamos guardado o path e o cost atual, até chegarmos ao ponto de início, a ideia
+ será todas as possibilidades, por isso depois por recursão (dfs) por exemplo em vez de optarmos inicialmente por x ponto, vamos por y ponto.
+*/
