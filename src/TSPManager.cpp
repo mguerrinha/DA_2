@@ -22,11 +22,26 @@ void TSPManager::load_graph(const std::string &file) {
     }
 }
 
+void TSPManager::load_coordinates(const std::string &file) {
+    std::ifstream arquivo(file);
+    std::string linha;
+    getline(arquivo, linha);
+
+    while (std::getline(arquivo, linha)) {
+        std::stringstream linhaStream(linha);
+        std::string idx, longi, lati;
+        if (std::getline(linhaStream, idx, ',')
+            && std::getline(linhaStream, longi, ',')
+            && std::getline(linhaStream, lati, ',')) {
+            _locations.emplace(std::stoi(idx), Haversine::Coordinates{std::stod(longi), std::stod(lati)});
+        }
+    }
+}
+
 Graph TSPManager::getTSPSystem() {
     return _TSPSystem;
 }
 
-bool is_not_in_path(const Vertex *node, const std::vector<Vertex*> &path, unsigned int pos);
 bool is_not_in_path(const Vertex *node, const std::vector<Vertex*> &path, unsigned int pos) {
     for (unsigned int i = 0; i < pos; ++i) {
         if (path[i] == node) {
@@ -36,7 +51,6 @@ bool is_not_in_path(const Vertex *node, const std::vector<Vertex*> &path, unsign
     return true;
 }
 
-void tspBTUtil(const Graph& graph, std::vector<Vertex*> &path, unsigned int pos, double cost, double &min_cost, std::vector<Vertex*> &min_path);
 void tspBTUtil(const Graph& graph, std::vector<Vertex*> &path, unsigned int pos, double cost, double &min_cost, std::vector<Vertex*> &min_path) {
     if (pos == path.size()) {
         Edge* lastToFirstEdge = path.back()->findEdge(path[0]);
@@ -61,11 +75,11 @@ void tspBTUtil(const Graph& graph, std::vector<Vertex*> &path, unsigned int pos,
     }
 }
 
-double TSPManager::tsp_backtracking() { // Feito a começar no primeiro Vertex, falta colocar um argumento para dar opção de escolha
+double TSPManager::tsp_backtracking(int idx) {
     double min_cost = std::numeric_limits<double>::max();
     std::vector<Vertex*> min_path;
     std::vector<Vertex*> tmp_path(_TSPSystem.getVertexSet().size(), nullptr);
-    tmp_path[0] = _TSPSystem.getVertexSet()[0]; // Substituir o Vertex escolhido aqui
+    tmp_path[0] = _TSPSystem.findVertex(idx);
 
     tspBTUtil(_TSPSystem, tmp_path, 1, 0, min_cost, min_path);
 
