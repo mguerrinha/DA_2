@@ -45,7 +45,7 @@ void Interface::run() {
                     std::string path = "../dataset/Extra_Fully_Connected_Graphs/edges_" + std::to_string(choice2) + ".csv";
                     _TSPManager.load_graph(path);
                 }
-                _TSPManager.load_coordinates("../dataset/Extra_Fully_Connected_Graphs/nodes.csv");
+                _TSPManager.load_coordinates_medium("../dataset/Extra_Fully_Connected_Graphs/nodes.csv", choice2);
                 displayMainMenu();
                 running = false;
                 break;
@@ -57,15 +57,15 @@ void Interface::run() {
                         break;
                     case 1:
                         _TSPManager.load_graph("../dataset/Real-world Graphs/graph1/edges.csv");
-                        _TSPManager.load_coordinates("../dataset/Real-world Graph/graph1/nodes.csv");
+                        _TSPManager.load_coordinates_real("../dataset/Real-world Graph/graph1/nodes.csv");
                         break;
                     case 2:
                         _TSPManager.load_graph("../dataset/Real-world Graphs/graph2/edges.csv");
-                        _TSPManager.load_coordinates("../dataset/Real-world Graph/graph2/nodes.csv");
+                        _TSPManager.load_coordinates_real("../dataset/Real-world Graph/graph2/nodes.csv");
                         break;
                     case 3:
                         _TSPManager.load_graph("../dataset/Real-world Graphs/graph3/edges.csv");
-                        _TSPManager.load_coordinates("../dataset/Real-world Graph/graph3/nodes.csv");
+                        _TSPManager.load_coordinates_real("../dataset/Real-world Graph/graph3/nodes.csv");
                         break;
                     default:
                         break;
@@ -235,7 +235,7 @@ void Interface::displayMainMenu() {
                 _TSPManager.tsp_backtracking();
                 break;
             case 2:
-                _TSPManager.tsp_triangular_aprox();
+                _TSPManager.tsp_triangular_approx();
                 break;
             default:
                 break;
