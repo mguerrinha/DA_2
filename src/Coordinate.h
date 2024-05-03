@@ -3,16 +3,16 @@
 
 class Coordinate {
 private:
-    double latitude;
-
     double longitude;
 
-public:
-    [[nodiscard]] double getLatitude() const;
+    double latitude;
 
+public:
     [[nodiscard]] double getLongitude() const;
 
-    Coordinate (double auxLatitude, double auxLongitude) : latitude(auxLatitude), longitude(auxLongitude) {};
+    [[nodiscard]] double getLatitude() const;
+
+    Coordinate (double auxLongitude, double auxLatitude) : longitude(auxLongitude), latitude(auxLatitude) {};
 };
 
 #endif //DA_PROJECT_2_COORDINATE_H

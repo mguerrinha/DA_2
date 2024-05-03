@@ -39,49 +39,11 @@ void Interface::run() {
                 break;
             case 2:
                 choice2 = displayFullyConnectedGraphOptions();
-                switch (choice2) {
-                    case 0:
-                        run();
-                        break;
-                    case 1:
-                        _TSPManager.load_graph("../dataset/Extra_Fully_Connected_Graphs/edges_25.csv");
-                        break;
-                    case 2:
-                        _TSPManager.load_graph("../dataset/Extra_Fully_Connected_Graphs/edges_50.csv");
-                        break;
-                    case 3:
-                        _TSPManager.load_graph("../dataset/Extra_Fully_Connected_Graphs/edges_75.csv");
-                        break;
-                    case 4:
-                        _TSPManager.load_graph("../dataset/Extra_Fully_Connected_Graphs/edges_100.csv");
-                        break;
-                    case 5:
-                        _TSPManager.load_graph("../dataset/Extra_Fully_Connected_Graphs/edges_200.csv");
-                        break;
-                    case 6:
-                        _TSPManager.load_graph("../dataset/Extra_Fully_Connected_Graphs/edges_300.csv");
-                        break;
-                    case 7:
-                        _TSPManager.load_graph("../dataset/Extra_Fully_Connected_Graphs/edges_400.csv");
-                        break;
-                    case 8:
-                        _TSPManager.load_graph("../dataset/Extra_Fully_Connected_Graphs/edges_500.csv");
-                        break;
-                    case 9:
-                        _TSPManager.load_graph("../dataset/Extra_Fully_Connected_Graphs/edges_600.csv");
-                        break;
-                    case 10:
-                        _TSPManager.load_graph("../dataset/Extra_Fully_Connected_Graphs/edges_700.csv");
-                        break;
-                    case 11:
-                        _TSPManager.load_graph("../dataset/Extra_Fully_Connected_Graphs/edges_800.csv");
-                        break;
-                    case 12:
-                        _TSPManager.load_graph("../dataset/Extra_Fully_Connected_Graphs/edges_900.csv");
-                        break;
-                    default:
-                        break;
-
+                if (choice2 == 0) {
+                    run();
+                } else {
+                    std::string path = "../dataset/Extra_Fully_Connected_Graphs/edges_" + std::to_string(choice2) + ".csv";
+                    _TSPManager.load_graph(path);
                 }
                 _TSPManager.load_coordinates("../dataset/Extra_Fully_Connected_Graphs/nodes.csv");
                 displayMainMenu();
@@ -94,15 +56,15 @@ void Interface::run() {
                         run();
                         break;
                     case 1:
-                        _TSPManager.load_graph("../dataset/Real-world Graph/graph1/edges.csv");
+                        _TSPManager.load_graph("../dataset/Real-world Graphs/graph1/edges.csv");
                         _TSPManager.load_coordinates("../dataset/Real-world Graph/graph1/nodes.csv");
                         break;
                     case 2:
-                        _TSPManager.load_graph("../dataset/Real-world Graph/graph2/edges.csv");
+                        _TSPManager.load_graph("../dataset/Real-world Graphs/graph2/edges.csv");
                         _TSPManager.load_coordinates("../dataset/Real-world Graph/graph2/nodes.csv");
                         break;
                     case 3:
-                        _TSPManager.load_graph("../dataset/Real-world Graph/graph3/edges.csv");
+                        _TSPManager.load_graph("../dataset/Real-world Graphs/graph3/edges.csv");
                         _TSPManager.load_coordinates("../dataset/Real-world Graph/graph3/nodes.csv");
                         break;
                     default:
@@ -178,42 +140,27 @@ int Interface::displayToyGraphOptions() {
 }
 
 int Interface::displayFullyConnectedGraphOptions() {
-    int option = -1;
+    int num_nodes;
     std::string line;
     bool validInput = false;
 
     while (!validInput) {
-        std::cout << "---------- Load Options -------------" << std::endl;
-        std::cout << "1 --> Graph with 25 nodes" << std::endl;
-        std::cout << "2 --> Graph with 50 nodes" << std::endl;
-        std::cout << "3 --> Graph with 75 nodes" << std::endl;
-        std::cout << "4 --> Graph with 100 nodes" << std::endl;
-        std::cout << "5 --> Graph with 100 nodes" << std::endl;
-        std::cout << "6 --> Graph with 300 nodes" << std::endl;
-        std::cout << "7 --> Graph with 400 nodes" << std::endl;
-        std::cout << "8 --> Graph with 500 nodes" << std::endl;
-        std::cout << "9 --> Graph with 600 nodes" << std::endl;
-        std::cout << "10 --> Graph with 700 nodes" << std::endl;
-        std::cout << "11 --> Graph with 800 nodes" << std::endl;
-        std::cout << "12 --> Graph with 900 nodes" << std::endl;
-        std::cout << "0 --> Return" << std::endl;
-        std::cout << "Choose one option: ";
-
+        std::cout << "Enter the number of nodes (25, 50, 75, 100, 200, 300, 400, 500, 600, 700, 800, 900) or 0 to return: ";
         std::getline(std::cin, line);
         std::stringstream in(line);
 
-        if (in >> option && (in.eof() || in.peek() == '\n' || in.peek() == ' ')) {
-            if (option >= 0 && option <= 12) {
+        if (in >> num_nodes && (in.eof() || in.peek() == '\n' || in.peek() == ' ')) {
+            if (num_nodes == 0 || (num_nodes % 25 == 0 && num_nodes <= 900)) {
                 validInput = true;
             }
         }
 
         if (!validInput) {
-            std::cout << "Error: Invalid input. Please enter a valid number between 0 and 12." << std::endl;
+            std::cout << "Error: Invalid input. Please enter a valid number of nodes as specified, or 0 to return." << std::endl;
         }
     }
 
-    return option;
+    return num_nodes;
 }
 
 int Interface::displayRealWorldGraphOptions() {
@@ -253,7 +200,7 @@ int Interface::chooseMainMenuOptions() {
 
     while (!validInput) {
         std::cout << "---------- Main Menu -------------" << std::endl;
-        std::cout << "1 --> TSP using backtracking" << std::endl;
+        std::cout << "1 --> TSP using Backtracking" << std::endl;
         std::cout << "0 --> Exit" << std::endl;
         std::cout << "Choose one option: ";
 
@@ -284,10 +231,7 @@ void Interface::displayMainMenu() {
                 running = false;
                 break;
             case 1:
-                std::cout << "Insert the desired index. ";
-                std::cin >> idx_choosed;
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                _TSPManager.tsp_backtracking(idx_choosed);
+                _TSPManager.tsp_backtracking();
                 break;
             default:
                 break;

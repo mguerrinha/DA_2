@@ -32,7 +32,7 @@ void TSPManager::load_coordinates(const std::string &file) {
         if (std::getline(linhaStream, idx, ',')
             && std::getline(linhaStream, longi, ',')
             && std::getline(linhaStream, lati, ',')) {
-            _TSPSystem.findVertex(stoi(idx))->setCoord(Coordinate{std::stod(lati), std::stod(longi)});
+            _TSPSystem.findVertex(stoi(idx))->setCoord(Coordinate{std::stod(longi), std::stod(lati)});
         }
     }
 }
@@ -41,7 +41,7 @@ Graph TSPManager::getTSPSystem() {
     return _TSPSystem;
 }
 
-bool is_not_in_path(const Vertex *node, const std::vector<Vertex*> &path, unsigned int pos) {
+bool is_not_in_path(const Vertex *node, const std::vector<Vertex*> &path, unsigned int pos) { // testa se um vertex pertence ao path atual até pos
     for (unsigned int i = 0; i < pos; ++i) {
         if (path[i] == node) {
             return false;
@@ -51,14 +51,15 @@ bool is_not_in_path(const Vertex *node, const std::vector<Vertex*> &path, unsign
 }
 
 void tspBTUtil(const Graph& graph, std::vector<Vertex*> &path, unsigned int pos, double cost, double &min_cost, std::vector<Vertex*> &min_path) {
+    // quando chega ao final de um path
     if (pos == path.size()) {
-        Edge* lastToFirstEdge = path.back()->findEdge(path[0]);
-        if (lastToFirstEdge) {
-            double current_cost = cost + lastToFirstEdge->getDist();
+        Edge* lastToFirstEdge = path.back()->findEdge(path[0]); // verifica se o último vertex tem ligação direta para o primeiro vertex ( só assim o path é válido)
+        if (lastToFirstEdge) { // se existir entra no if
+            double current_cost = cost + lastToFirstEdge->getDist(); // soma o cost atual ao cost da última edge necessária
             if (current_cost < min_cost) {
                 min_cost = current_cost;
                 min_path = path;
-                min_path.push_back(path[0]);
+                min_path.push_back(path[0]); // adiciona o primeiro vertex para "fechar" o path
             }
         }
         return;
@@ -68,17 +69,17 @@ void tspBTUtil(const Graph& graph, std::vector<Vertex*> &path, unsigned int pos,
     for (Edge* edge : last->getAdj()) {
         Vertex* next = edge->getDest();
         if (is_not_in_path(next, path, pos) && edge->getDist() > 0) {
-            path[pos] = next;
-            tspBTUtil(graph, path, pos + 1, cost + edge->getDist(), min_cost, min_path);
+            path[pos] = next; // adiciona ao path o próximo vertex (adjacente ao anterior)
+            tspBTUtil(graph, path, pos + 1, cost + edge->getDist(), min_cost, min_path); // avança para o próximo vertex e assim sucessivamente, até pos == path.size()
         }
     }
 }
 
-double TSPManager::tsp_backtracking(int idx) {
+double TSPManager::tsp_backtracking() { // backtracking testa todas as possibilidades
     double min_cost = std::numeric_limits<double>::max();
     std::vector<Vertex*> min_path;
     std::vector<Vertex*> tmp_path(_TSPSystem.getVertexSet().size(), nullptr);
-    tmp_path[0] = _TSPSystem.findVertex(idx);
+    tmp_path[0] = _TSPSystem.getVertexSet()[0];
 
     tspBTUtil(_TSPSystem, tmp_path, 1, 0, min_cost, min_path);
 
@@ -97,9 +98,3 @@ double TSPManager::tsp_backtracking(int idx) {
 
     return min_cost;
 }
-
-/*
-A ideia do backtracking para o TSP seria que inicialmente podemos começar em qualquer ponto dado que o grafo é fully-connected, logo pelo que percebi, o min cost será sempre o mesmo
- apenas teres um path diferente, a ideia seria então percorrer os pontos adjacentes ao selecionado conforme vamos guardado o path e o cost atual, até chegarmos ao ponto de início, a ideia
- será todas as possibilidades, por isso depois por recursão (dfs) por exemplo em vez de optarmos inicialmente por x ponto, vamos por y ponto.
-*/

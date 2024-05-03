@@ -23,7 +23,7 @@ public:
 
     Graph getTSPSystem();
 
-    double tsp_backtracking(int idx);
+    double tsp_backtracking();
 };
 
 #endif //DA_PROJECT_2_TSPMANAGER_H
