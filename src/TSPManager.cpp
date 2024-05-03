@@ -183,7 +183,7 @@ double TSPManager::getTourCost(const std::vector<Vertex*>& tour) {
     return totalCost;
 }
 
-void TSPManager::preorderTraversal(Vertex* root, std::vector<Vertex*>& tour) { // Basicamente DFS para reconstruir o path
+void TSPManager::preorderTraversal(Vertex* root, std::vector<Vertex*>& tour) { // Basicamente DFS para reconstruir o path, o path não está a sair corretamente pq está por ordem numérica
     if (root == nullptr || root->isVisited()) return;
     root->setVisited(true);
     tour.push_back(root);
