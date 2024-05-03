@@ -3,7 +3,6 @@
 
 TSPManager::TSPManager() = default;
 
-
 void TSPManager::load_graph(const std::string &file) {
     std::ifstream arquivo(file);
     std::string linha;
@@ -33,7 +32,7 @@ void TSPManager::load_coordinates(const std::string &file) {
         if (std::getline(linhaStream, idx, ',')
             && std::getline(linhaStream, longi, ',')
             && std::getline(linhaStream, lati, ',')) {
-            _locations.emplace(std::stoi(idx), Haversine::Coordinates{std::stod(longi), std::stod(lati)});
+            _TSPSystem.findVertex(stoi(idx))->setCoord(Coordinate{std::stod(lati), std::stod(longi)});
         }
     }
 }

@@ -115,3 +115,11 @@ Edge* Vertex::findEdge(Vertex* dest) {
     }
     return nullptr;
 }
+
+void Vertex::setCoord(Coordinate coordinate) {
+    this->coord = coordinate;
+}
+
+Coordinate Vertex::getCoord() const {
+    return this->coord;
+}

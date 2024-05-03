@@ -3,6 +3,7 @@
 
 #include "data_structures/Graph.h"
 #include "Haversine.h"
+#include "Coordinate.h"
 #include <string>
 #include <unordered_map>
 #include <fstream>
@@ -12,8 +13,6 @@
 
 class TSPManager {
     Graph _TSPSystem;
-
-    std::unordered_map<int, Haversine::Coordinates> _locations;
 
 public:
     TSPManager();

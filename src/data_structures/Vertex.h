@@ -2,6 +2,8 @@
 #define DA_PROJECT_2_VERTEX_H
 
 #include "Edge.h"
+#include "../Haversine.h"
+#include "../Coordinate.h"
 #include <string>
 #include <vector>
 #include <iostream>
@@ -16,6 +18,8 @@ public:
 
     [[nodiscard]] int getInfo() const;
 
+    [[nodiscard]] Coordinate getCoord() const;
+
     [[nodiscard]] double getDist() const;
 
     [[nodiscard]] std::vector<Edge *> getAdj() const;
@@ -27,6 +31,8 @@ public:
     [[nodiscard]] unsigned int getIndegree() const;
 
     [[nodiscard]] Edge *getPath() const;
+
+    void setCoord(Coordinate coordinate);
 
     void setDist(double dist);
 
@@ -50,6 +56,8 @@ public:
 
 protected:
     int info;
+
+    Coordinate coord {0,0};
 
     double dist = 0;
 

@@ -4,11 +4,11 @@ double Haversine::toRadians(double degree) {
     return degree * (M_PI / 180.0);
 }
 
-double Haversine::calculateDistance(const Haversine::Coordinates &coord1, const Haversine::Coordinates &coord2) {
-    double lat1 = toRadians(coord1.latitude);
-    double lon1 = toRadians(coord1.longitude);
-    double lat2 = toRadians(coord2.latitude);
-    double lon2 = toRadians(coord2.longitude);
+double Haversine::calculateDistance(const Coordinate &coord1, const Coordinate &coord2) {
+    double lat1 = toRadians(coord1.getLatitude());
+    double lon1 = toRadians(coord1.getLongitude());
+    double lat2 = toRadians(coord2.getLatitude());
+    double lon2 = toRadians(coord2.getLongitude());
 
     double dlat = lat2 - lat1;
     double dlon = lon2 - lon1;
