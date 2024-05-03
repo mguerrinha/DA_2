@@ -201,6 +201,7 @@ int Interface::chooseMainMenuOptions() {
     while (!validInput) {
         std::cout << "---------- Main Menu -------------" << std::endl;
         std::cout << "1 --> TSP using Backtracking" << std::endl;
+        std::cout << "2 --> TSP using Triangular Approximation Heuristic" << std::endl;
         std::cout << "0 --> Exit" << std::endl;
         std::cout << "Choose one option: ";
 
@@ -223,7 +224,7 @@ int Interface::chooseMainMenuOptions() {
 
 void Interface::displayMainMenu() {
     bool running = true;
-    int choice, idx_choosed;
+    int choice;
     while (running) {
         choice = chooseMainMenuOptions();
         switch (choice) {
@@ -232,6 +233,9 @@ void Interface::displayMainMenu() {
                 break;
             case 1:
                 _TSPManager.tsp_backtracking();
+                break;
+            case 2:
+                _TSPManager.tsp_triangular_aprox();
                 break;
             default:
                 break;

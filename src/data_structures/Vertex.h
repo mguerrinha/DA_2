@@ -2,6 +2,7 @@
 #define DA_PROJECT_2_VERTEX_H
 
 #include "Edge.h"
+#include "MutablePriorityQueue.h"
 #include "../Haversine.h"
 #include "../Coordinate.h"
 #include <string>
@@ -54,6 +55,8 @@ public:
 
     void removeOutgoingEdges();
 
+    friend class MutablePriorityQueue<Vertex>;
+
 protected:
     int info;
 
@@ -74,6 +77,8 @@ protected:
     std::vector<Edge *> incoming;
 
     void deleteEdge(Edge *edge);
+
+    int queueIndex = 0; // required by MutablePriorityQueue
 };
 
 #endif //DA_PROJECT_2_VERTEX_H

@@ -17,4 +17,5 @@ add_executable(DA_project_2 src/main.cpp
         src/TSPManager.cpp
         src/TSPManager.h
         src/Coordinate.cpp
-        src/Coordinate.h)
+        src/Coordinate.h
+        src/data_structures/MutablePriorityQueue.h)

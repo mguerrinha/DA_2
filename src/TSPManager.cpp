@@ -75,7 +75,7 @@ void tspBTUtil(const Graph& graph, std::vector<Vertex*> &path, unsigned int pos,
     }
 }
 
-double TSPManager::tsp_backtracking() { // backtracking testa todas as possibilidades
+void TSPManager::tsp_backtracking() { // backtracking testa todas as possibilidades
     double min_cost = std::numeric_limits<double>::max();
     std::vector<Vertex*> min_path;
     std::vector<Vertex*> tmp_path(_TSPSystem.getVertexSet().size(), nullptr);
@@ -95,6 +95,53 @@ double TSPManager::tsp_backtracking() { // backtracking testa todas as possibili
         }
     }
     std::cout << std::endl;
+}
 
-    return min_cost;
+std::vector<Vertex *> prim(Graph* g) { // Ao contrário do Kruskal, retira sempre a edge com menor distância que seja adjacente a um dos vertex já selecionados
+    if(g == nullptr) return {};
+
+    std::vector<Vertex *> vertices = g->getVertexSet();
+    for(Vertex* v : vertices) {
+        v->setDist(std::numeric_limits<double>::max());
+        v->setVisited(false);
+        v->setPath(nullptr);
+    }
+
+    MutablePriorityQueue<Vertex> q;
+
+    vertices[0]->setDist(0);
+    q.insert(vertices[0]);
+
+    while(!q.empty()) {
+        Vertex * v = q.extractMin(); // Extrai o vertex com a mínima distância possível
+        v->setVisited(true);
+
+        for(Edge* e : v->getAdj()) {
+            Vertex * w = e->getDest();
+            if(!w->isVisited() && e->getDist() < w->getDist()) {
+                double oldDist = w->getDist(); // Salva distância antiga
+                w->setDist(e->getDist()); // Atualiza a distância do vertex
+                w->setPath(e);
+
+                if(oldDist == std::numeric_limits<double>::max()) {
+                    q.insert(w); // Se a distância fosse infinita, não pertencia à queue
+                } else {
+                    q.decreaseKey(w); // Pode ou não ganhar prioridade conforme a atualização do seu valor do Dist (maior prioridade se tiver um valor menor)
+                }
+            }
+        }
+    }
+    // Coleta os vertex pertences à MST
+    std::vector<Vertex *> mst;
+    for(Vertex* v : vertices) {
+        if(v->isVisited()) {
+            mst.push_back(v);
+        }
+    }
+    return mst;
+}
+
+void TSPManager::tsp_triangular_aprox() {
+    std::vector<Vertex*> mst = prim(&_TSPSystem);
+
 }
