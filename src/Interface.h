@@ -21,9 +21,9 @@ private:
 
     static int displayRealWorldGraphOptions();
 
-    static void displayMainMenu();
+    static int displayMainMenu();
 
-    static int chooseMainMenuOptions();
+    static void chooseMainMenuOptions();
 };
 
 #endif //DA_PROJECT_2_INTERFACE_H

@@ -34,7 +34,7 @@ void Interface::run() {
                     default:
                         break;
                 }
-                displayMainMenu();
+                chooseMainMenuOptions();
                 running = false;
                 break;
             case 2:
@@ -46,7 +46,7 @@ void Interface::run() {
                     _TSPManager.load_graph(path);
                 }
                 _TSPManager.load_coordinates_medium("../dataset/Extra_Fully_Connected_Graphs/nodes.csv", choice2);
-                displayMainMenu();
+                chooseMainMenuOptions();
                 running = false;
                 break;
             case 3:
@@ -70,7 +70,7 @@ void Interface::run() {
                     default:
                         break;
                 }
-                displayMainMenu();
+                chooseMainMenuOptions();
                 running = false;
                 break;
             default:
@@ -193,7 +193,7 @@ int Interface::displayRealWorldGraphOptions() {
     return option;
 }
 
-int Interface::chooseMainMenuOptions() {
+int Interface::displayMainMenu() {
     int option = -1;
     std::string line;
     bool validInput = false;
@@ -223,11 +223,11 @@ int Interface::chooseMainMenuOptions() {
     return option;
 }
 
-void Interface::displayMainMenu() {
+void Interface::chooseMainMenuOptions() {
     bool running = true;
     int choice, idx_choosed;
     while (running) {
-        choice = chooseMainMenuOptions();
+        choice = displayMainMenu();
         switch (choice) {
             case 0:
                 running = false;
