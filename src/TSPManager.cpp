@@ -225,3 +225,62 @@ void TSPManager::tsp_triangular_approx() {
     std::cout << std::endl;
     std::cout << "Total Cost of TSP Tour: " << tourCost << std::endl;
 }
+
+void TSPManager::tsp_nearest_neighbour(int idx) {
+    std::vector<int> path;
+    int cnt_num = 0; // incrementado a cada vertex visited
+    int num_nodes = _TSPSystem.getVertexSet().size();
+    for (Vertex* v : _TSPSystem.getVertexSet()) {
+        v->setVisited(false);
+    }
+    Vertex* start_vertex = _TSPSystem.findVertex(idx);
+    Vertex* initial_vertex = start_vertex; // salvar o vertex inicial (idx)
+    start_vertex->setVisited(true);
+    path.push_back(start_vertex->getInfo());
+    cnt_num++;
+    double totalCost = 0;
+
+    while (cnt_num < num_nodes) { // termina quando todos os vertex forem visitados
+        double currentCost = std::numeric_limits<double>::max();
+        Edge * currentEdge = nullptr;
+
+        for (Edge* e : start_vertex->getAdj()) {
+            if (!e->getDest()->isVisited() && e->getDist() < currentCost) {
+                currentCost = e->getDist();
+                currentEdge = e;
+            }
+        }
+
+        if (currentEdge == nullptr) {
+            break;
+        }
+
+        totalCost += currentCost;
+        start_vertex = currentEdge->getDest();
+        start_vertex->setVisited(true);
+        path.push_back(start_vertex->getInfo());
+        cnt_num++;
+    }
+
+    int lastIdx = path[(path.size() -1)];
+    if (_TSPSystem.findVertex(lastIdx)->findEdge(initial_vertex) == nullptr) {
+        std::cout << "No path found." << std::endl;
+        return;
+    } else {
+        totalCost += _TSPSystem.findVertex(lastIdx)->findEdge(initial_vertex)->getDist();
+    }
+    path.push_back(initial_vertex->getInfo());
+
+    int aux = 0;
+    std::cout << "Path: ";
+    for (int v : path) {
+        std::cout << v;
+        aux++;
+        if (aux == path.size()) continue;
+        else {
+            std::cout << " -> ";
+        }
+    }
+    std::cout << std::endl;
+    std::cout << "Total Cost: " << totalCost << std::endl;
+}

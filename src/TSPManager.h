@@ -11,6 +11,7 @@
 #include <sstream>
 #include <iostream>
 #include <cmath>
+#include <limits.h>
 
 class TSPManager {
     Graph _TSPSystem;
@@ -39,6 +40,8 @@ public:
     void preorderTraversal(Vertex* root, std::vector<Vertex*>& tour);
 
     void tsp_triangular_approx();
+
+    void tsp_nearest_neighbour(int idx);
 };
 
 #endif //DA_PROJECT_2_TSPMANAGER_H

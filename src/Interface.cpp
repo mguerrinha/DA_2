@@ -86,10 +86,10 @@ int Interface::displayLoadOptions() {
 
     while (!validInput) {
         std::cout << "---------- Load Options -------------" << std::endl;
-        std::cout << "1 --> Load one of the Toy Graphs" << std::endl;
-        std::cout << "2 --> Load one of the Extra-Fully-Connected Graphs" << std::endl;
-        std::cout << "3 --> Load one of the Real-word Graphs" << std::endl;
-        std::cout << "0 --> Exit" << std::endl;
+        std::cout << "1 --> Load one of the Toy Graphs." << std::endl;
+        std::cout << "2 --> Load one of the Extra-Fully-Connected Graphs." << std::endl;
+        std::cout << "3 --> Load one of the Real-word Graphs." << std::endl;
+        std::cout << "0 --> Exit." << std::endl;
         std::cout << "Choose one option: ";
 
         std::getline(std::cin, line);
@@ -116,9 +116,9 @@ int Interface::displayToyGraphOptions() {
 
     while (!validInput) {
         std::cout << "---------- Load Options -------------" << std::endl;
-        std::cout << "1 --> Load Shipping Graph" << std::endl;
-        std::cout << "2 --> Load Stadium Graph" << std::endl;
-        std::cout << "3 --> Load Tourism Graph" << std::endl;
+        std::cout << "1 --> Load Shipping Graph." << std::endl;
+        std::cout << "2 --> Load Stadium Graph." << std::endl;
+        std::cout << "3 --> Load Tourism Graph." << std::endl;
         std::cout << "0 --> Return" << std::endl;
         std::cout << "Choose one option: ";
 
@@ -170,9 +170,9 @@ int Interface::displayRealWorldGraphOptions() {
 
     while (!validInput) {
         std::cout << "---------- Load Options -------------" << std::endl;
-        std::cout << "1 --> Load Graph 1" << std::endl;
-        std::cout << "2 --> Load Graph 2" << std::endl;
-        std::cout << "3 --> Load Graph 3" << std::endl;
+        std::cout << "1 --> Load Graph 1." << std::endl;
+        std::cout << "2 --> Load Graph 2." << std::endl;
+        std::cout << "3 --> Load Graph 3." << std::endl;
         std::cout << "0 --> Return" << std::endl;
         std::cout << "Choose one option: ";
 
@@ -200,9 +200,10 @@ int Interface::chooseMainMenuOptions() {
 
     while (!validInput) {
         std::cout << "---------- Main Menu -------------" << std::endl;
-        std::cout << "1 --> TSP using Backtracking" << std::endl;
-        std::cout << "2 --> TSP using Triangular Approximation Heuristic" << std::endl;
-        std::cout << "0 --> Exit" << std::endl;
+        std::cout << "1 --> TSP using Backtracking." << std::endl; // 4.1
+        std::cout << "2 --> TSP using Triangular Approximation Heuristic." << std::endl; // 4.2
+        std::cout << "4 --> TSP using Nearest Neighbour Heuristic." << std::endl; // 4.4
+        std::cout << "0 --> Exit." << std::endl;
         std::cout << "Choose one option: ";
 
         std::getline(std::cin, line);
@@ -224,7 +225,7 @@ int Interface::chooseMainMenuOptions() {
 
 void Interface::displayMainMenu() {
     bool running = true;
-    int choice;
+    int choice, idx_choosed;
     while (running) {
         choice = chooseMainMenuOptions();
         switch (choice) {
@@ -236,6 +237,12 @@ void Interface::displayMainMenu() {
                 break;
             case 2:
                 _TSPManager.tsp_triangular_approx();
+                break;
+            case 4:
+                std::cout << "Insert the desired index. ";
+                std::cin >> idx_choosed;
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                _TSPManager.tsp_nearest_neighbour(idx_choosed);
                 break;
             default:
                 break;
