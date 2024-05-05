@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['haversine_72',['Haversine',['../classHaversine.html',1,'']]]
+  ['haversine_100',['Haversine',['../classHaversine.html',1,'']]]
 ];

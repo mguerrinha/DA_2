@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['interface_2ecpp_82',['Interface.cpp',['../Interface_8cpp.html',1,'']]],
-  ['interface_2eh_83',['Interface.h',['../Interface_8h.html',1,'']]]
+  ['haversine_2ecpp_111',['Haversine.cpp',['../Haversine_8cpp.html',1,'']]],
+  ['haversine_2eh_112',['Haversine.h',['../Haversine_8h.html',1,'']]]
 ];

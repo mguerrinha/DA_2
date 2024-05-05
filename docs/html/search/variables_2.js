@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['incoming_129',['incoming',['../classVertex.html#a2d41654d7aee77d99edacca6a923f4ee',1,'Vertex']]],
-  ['indegree_130',['indegree',['../classVertex.html#a94ae99aae9b1a426feda5ecda70c598b',1,'Vertex']]],
-  ['info_131',['info',['../classVertex.html#ae45a7495e6f5325efedb4ee4cf509298',1,'Vertex']]]
+  ['dest_184',['dest',['../classEdge.html#a50339c1a85710ca827d4e3865727ffd7',1,'Edge']]],
+  ['dist_185',['dist',['../classEdge.html#af5e90ce4a035531bc90c710c86f9448f',1,'Edge::dist()'],['../classVertex.html#a11d98611f5101fe7f46785d8b9c53f44',1,'Vertex::dist()']]]
 ];

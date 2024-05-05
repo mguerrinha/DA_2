@@ -2,9 +2,12 @@
 <area shape="rect" id="node1" title=" " alt="" coords="184,5,407,61"/>
 <area shape="rect" id="node2" href="$Edge_8h.html" title=" " alt="" coords="117,109,330,165"/>
 <area shape="rect" id="node4" href="$Graph_8h.html" title=" " alt="" coords="257,213,477,269"/>
-<area shape="rect" id="node8" href="$Vertex_8cpp.html" title=" " alt="" coords="405,109,644,165"/>
+<area shape="rect" id="node11" href="$Vertex_8cpp.html" title=" " alt="" coords="405,109,644,165"/>
 <area shape="rect" id="node3" href="$Edge_8cpp.html" title=" " alt="" coords="5,213,233,269"/>
 <area shape="rect" id="node5" href="$Graph_8cpp.html" title=" " alt="" coords="131,317,366,373"/>
 <area shape="rect" id="node6" href="$TSPManager_8h.html" title=" " alt="" coords="390,317,579,373"/>
-<area shape="rect" id="node7" href="$TSPManager_8cpp.html" title=" " alt="" coords="390,421,579,477"/>
+<area shape="rect" id="node7" href="$Interface_8h.html" title=" " alt="" coords="283,421,473,477"/>
+<area shape="rect" id="node10" href="$TSPManager_8cpp.html" title=" " alt="" coords="497,421,686,477"/>
+<area shape="rect" id="node8" href="$Interface_8cpp.html" title=" " alt="" coords="177,525,366,581"/>
+<area shape="rect" id="node9" href="$main_8cpp.html" title=" " alt="" coords="390,525,579,581"/>
 </map>

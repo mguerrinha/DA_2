@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['edge_70',['Edge',['../classEdge.html',1,'']]]
+  ['edge_98',['Edge',['../classEdge.html',1,'']]]
 ];

@@ -62,15 +62,468 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classTSPManager-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">TSPManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p>Class representing a system for solving the Travelling Salesperson Problem.  
+ <a href="classTSPManager.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="TSPManager_8h_source.html">TSPManager.h</a>&gt;</code></p>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:aeed8e335671fb4703e7521b72d2a634b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSPManager.html#aeed8e335671fb4703e7521b72d2a634b">TSPManager</a> ()</td></tr>
+<tr class="memdesc:aeed8e335671fb4703e7521b72d2a634b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor of the <a class="el" href="classTSPManager.html" title="Class representing a system for solving the Travelling Salesperson Problem.">TSPManager</a> class.  <a href="classTSPManager.html#aeed8e335671fb4703e7521b72d2a634b">More...</a><br /></td></tr>
+<tr class="separator:aeed8e335671fb4703e7521b72d2a634b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d3dbab6423a1bdea83e9bcf8ce87db1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGraph.html">Graph</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSPManager.html#a8d3dbab6423a1bdea83e9bcf8ce87db1">getTSPSystem</a> ()</td></tr>
+<tr class="memdesc:a8d3dbab6423a1bdea83e9bcf8ce87db1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the graph that represents this class.  <a href="classTSPManager.html#a8d3dbab6423a1bdea83e9bcf8ce87db1">More...</a><br /></td></tr>
+<tr class="separator:a8d3dbab6423a1bdea83e9bcf8ce87db1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afee33f44dccfcdd85ac5d7bb70f44007"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSPManager.html#afee33f44dccfcdd85ac5d7bb70f44007">load_graph</a> (const std::string &amp;file)</td></tr>
+<tr class="memdesc:afee33f44dccfcdd85ac5d7bb70f44007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the information (vertices and edges) about the graph into a csv file Complexity: O(N)  <a href="classTSPManager.html#afee33f44dccfcdd85ac5d7bb70f44007">More...</a><br /></td></tr>
+<tr class="separator:afee33f44dccfcdd85ac5d7bb70f44007"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa54c00e9ccb923bd7bbefd16db1b5914"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSPManager.html#aa54c00e9ccb923bd7bbefd16db1b5914">load_coordinates_medium</a> (const std::string &amp;file, int num_nodes)</td></tr>
+<tr class="memdesc:aa54c00e9ccb923bd7bbefd16db1b5914"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the real distances between two vertices using the <a class="el" href="classHaversine.html" title="Class representing the Haversine formula.">Haversine</a> formula, reading from a csv file Complexity: O(N)  <a href="classTSPManager.html#aa54c00e9ccb923bd7bbefd16db1b5914">More...</a><br /></td></tr>
+<tr class="separator:aa54c00e9ccb923bd7bbefd16db1b5914"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d78b3aebdea243bdfb4358e2d45ea68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSPManager.html#a7d78b3aebdea243bdfb4358e2d45ea68">load_coordinates_real</a> (const std::string &amp;file)</td></tr>
+<tr class="memdesc:a7d78b3aebdea243bdfb4358e2d45ea68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the real distances between two vertices using the <a class="el" href="classHaversine.html" title="Class representing the Haversine formula.">Haversine</a> formula, reading from a csv file Complexity: O(N)  <a href="classTSPManager.html#a7d78b3aebdea243bdfb4358e2d45ea68">More...</a><br /></td></tr>
+<tr class="separator:a7d78b3aebdea243bdfb4358e2d45ea68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a078841b12a99681d12c46d582a06800b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSPManager.html#a078841b12a99681d12c46d582a06800b">is_not_in_path</a> (const <a class="el" href="classVertex.html">Vertex</a> *node, const std::vector&lt; <a class="el" href="classVertex.html">Vertex</a> * &gt; &amp;path, unsigned int pos)</td></tr>
+<tr class="memdesc:a078841b12a99681d12c46d582a06800b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a vertex already belongs to a path Complexity: O(N)  <a href="classTSPManager.html#a078841b12a99681d12c46d582a06800b">More...</a><br /></td></tr>
+<tr class="separator:a078841b12a99681d12c46d582a06800b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dd55e69392bb2502bb1f0a8e5a3443d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSPManager.html#a6dd55e69392bb2502bb1f0a8e5a3443d">tspBTUtil</a> (const <a class="el" href="classGraph.html">Graph</a> &amp;graph, std::vector&lt; <a class="el" href="classVertex.html">Vertex</a> * &gt; &amp;path, unsigned int pos, double cost, double &amp;min_cost, std::vector&lt; <a class="el" href="classVertex.html">Vertex</a> * &gt; &amp;min_path)</td></tr>
+<tr class="memdesc:a6dd55e69392bb2502bb1f0a8e5a3443d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test all possible paths to find the optimal solution Complexity: O(N!)  <a href="classTSPManager.html#a6dd55e69392bb2502bb1f0a8e5a3443d">More...</a><br /></td></tr>
+<tr class="separator:a6dd55e69392bb2502bb1f0a8e5a3443d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37d4c32185bef2565fc78f9567cd756f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSPManager.html#a37d4c32185bef2565fc78f9567cd756f">tsp_backtracking</a> ()</td></tr>
+<tr class="memdesc:a37d4c32185bef2565fc78f9567cd756f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Backtracking algorithm to obtain the optimal result for TSP (only for small graphs) Complexity: O(N! + N)  <a href="classTSPManager.html#a37d4c32185bef2565fc78f9567cd756f">More...</a><br /></td></tr>
+<tr class="separator:a37d4c32185bef2565fc78f9567cd756f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11d50f9d615505e9f1369a8cc87684f4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classVertex.html">Vertex</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSPManager.html#a11d50f9d615505e9f1369a8cc87684f4">prim</a> (<a class="el" href="classGraph.html">Graph</a> *g)</td></tr>
+<tr class="memdesc:a11d50f9d615505e9f1369a8cc87684f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prim's algorithm Complexity: O(E * logV)  <a href="classTSPManager.html#a11d50f9d615505e9f1369a8cc87684f4">More...</a><br /></td></tr>
+<tr class="separator:a11d50f9d615505e9f1369a8cc87684f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b529ea17f1345a2c86142a20a1618ed"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSPManager.html#a1b529ea17f1345a2c86142a20a1618ed">getTourCost</a> (const std::vector&lt; <a class="el" href="classVertex.html">Vertex</a> * &gt; &amp;tour)</td></tr>
+<tr class="memdesc:a1b529ea17f1345a2c86142a20a1618ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the cost of a given path Complexity: O(N)  <a href="classTSPManager.html#a1b529ea17f1345a2c86142a20a1618ed">More...</a><br /></td></tr>
+<tr class="separator:a1b529ea17f1345a2c86142a20a1618ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f11b857839baf56f1b6885893d6a6ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSPManager.html#a1f11b857839baf56f1b6885893d6a6ca">preorderTraversal</a> (<a class="el" href="classVertex.html">Vertex</a> *root, std::vector&lt; <a class="el" href="classVertex.html">Vertex</a> * &gt; &amp;tour)</td></tr>
+<tr class="memdesc:a1f11b857839baf56f1b6885893d6a6ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">"Rebuild" the path using DFS Complexity: O(V + E)  <a href="classTSPManager.html#a1f11b857839baf56f1b6885893d6a6ca">More...</a><br /></td></tr>
+<tr class="separator:a1f11b857839baf56f1b6885893d6a6ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31b158c780aed20884fa25084f943d2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSPManager.html#a31b158c780aed20884fa25084f943d2a">tsp_triangular_approx</a> ()</td></tr>
+<tr class="memdesc:a31b158c780aed20884fa25084f943d2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the Triangular Approximation Heuristic Complexity: O((E * logV) + 2V + E + 2N)  <a href="classTSPManager.html#a31b158c780aed20884fa25084f943d2a">More...</a><br /></td></tr>
+<tr class="separator:a31b158c780aed20884fa25084f943d2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b657616172f4d8acbb1078f196977e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSPManager.html#a3b657616172f4d8acbb1078f196977e1">tsp_nearest_neighbour</a> (int idx)</td></tr>
+<tr class="memdesc:a3b657616172f4d8acbb1078f196977e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nearest neighbor heuristic to calculate a non-optimal minimum cost for the TSP Complexity: O(V + N * E + N)  <a href="classTSPManager.html#a3b657616172f4d8acbb1078f196977e1">More...</a><br /></td></tr>
+<tr class="separator:a3b657616172f4d8acbb1078f196977e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class representing a system for solving the Travelling Salesperson Problem. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aeed8e335671fb4703e7521b72d2a634b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeed8e335671fb4703e7521b72d2a634b">&#9670;&nbsp;</a></span>TSPManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TSPManager::TSPManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default constructor of the <a class="el" href="classTSPManager.html" title="Class representing a system for solving the Travelling Salesperson Problem.">TSPManager</a> class. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1b529ea17f1345a2c86142a20a1618ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b529ea17f1345a2c86142a20a1618ed">&#9670;&nbsp;</a></span>getTourCost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double TSPManager::getTourCost </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classVertex.html">Vertex</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>tour</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the cost of a given path Complexity: O(N) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tour</td><td>Path to be used </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a tour's cost </dd></dl>
+
+</div>
+</div>
+<a id="a8d3dbab6423a1bdea83e9bcf8ce87db1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d3dbab6423a1bdea83e9bcf8ce87db1">&#9670;&nbsp;</a></span>getTSPSystem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classGraph.html">Graph</a> TSPManager::getTSPSystem </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the graph that represents this class. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classGraph.html">Graph</a> </dd></dl>
+
+</div>
+</div>
+<a id="a078841b12a99681d12c46d582a06800b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a078841b12a99681d12c46d582a06800b">&#9670;&nbsp;</a></span>is_not_in_path()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TSPManager::is_not_in_path </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classVertex.html">Vertex</a> *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classVertex.html">Vertex</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if a vertex already belongs to a path Complexity: O(N) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td><a class="el" href="classVertex.html">Vertex</a> to be checked </td></tr>
+    <tr><td class="paramname">path</td><td>Path needed </td></tr>
+    <tr><td class="paramname">pos</td><td>Position to iterate to </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if doesn't belongs to a path, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="aa54c00e9ccb923bd7bbefd16db1b5914"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa54c00e9ccb923bd7bbefd16db1b5914">&#9670;&nbsp;</a></span>load_coordinates_medium()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TSPManager::load_coordinates_medium </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num_nodes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Load the real distances between two vertices using the <a class="el" href="classHaversine.html" title="Class representing the Haversine formula.">Haversine</a> formula, reading from a csv file Complexity: O(N) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td></td></tr>
+    <tr><td class="paramname">num_nodes</td><td>In this case we have to restrict the number of nodes to be added according to the number desired by the user </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7d78b3aebdea243bdfb4358e2d45ea68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d78b3aebdea243bdfb4358e2d45ea68">&#9670;&nbsp;</a></span>load_coordinates_real()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TSPManager::load_coordinates_real </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Load the real distances between two vertices using the <a class="el" href="classHaversine.html" title="Class representing the Haversine formula.">Haversine</a> formula, reading from a csv file Complexity: O(N) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afee33f44dccfcdd85ac5d7bb70f44007"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afee33f44dccfcdd85ac5d7bb70f44007">&#9670;&nbsp;</a></span>load_graph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TSPManager::load_graph </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Load the information (vertices and edges) about the graph into a csv file Complexity: O(N) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1f11b857839baf56f1b6885893d6a6ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f11b857839baf56f1b6885893d6a6ca">&#9670;&nbsp;</a></span>preorderTraversal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TSPManager::preorderTraversal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classVertex.html">Vertex</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classVertex.html">Vertex</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>tour</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>"Rebuild" the path using DFS Complexity: O(V + E) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>Starting vertex </td></tr>
+    <tr><td class="paramname">tour</td><td>Path to be filled in </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a11d50f9d615505e9f1369a8cc87684f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11d50f9d615505e9f1369a8cc87684f4">&#9670;&nbsp;</a></span>prim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classVertex.html">Vertex</a> * &gt; TSPManager::prim </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGraph.html">Graph</a> *&#160;</td>
+          <td class="paramname"><em>g</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prim's algorithm Complexity: O(E * logV) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td><a class="el" href="classGraph.html">Graph</a> to be used </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Minimum cost tree </dd></dl>
+
+</div>
+</div>
+<a id="a37d4c32185bef2565fc78f9567cd756f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37d4c32185bef2565fc78f9567cd756f">&#9670;&nbsp;</a></span>tsp_backtracking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TSPManager::tsp_backtracking </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Backtracking algorithm to obtain the optimal result for TSP (only for small graphs) Complexity: O(N! + N) </p>
+
+</div>
+</div>
+<a id="a3b657616172f4d8acbb1078f196977e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b657616172f4d8acbb1078f196977e1">&#9670;&nbsp;</a></span>tsp_nearest_neighbour()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TSPManager::tsp_nearest_neighbour </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Nearest neighbor heuristic to calculate a non-optimal minimum cost for the TSP Complexity: O(V + N * E + N) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>Starting vertex </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a31b158c780aed20884fa25084f943d2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31b158c780aed20884fa25084f943d2a">&#9670;&nbsp;</a></span>tsp_triangular_approx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TSPManager::tsp_triangular_approx </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Applies the Triangular Approximation Heuristic Complexity: O((E * logV) + 2V + E + 2N) </p>
+
+</div>
+</div>
+<a id="a6dd55e69392bb2502bb1f0a8e5a3443d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dd55e69392bb2502bb1f0a8e5a3443d">&#9670;&nbsp;</a></span>tspBTUtil()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TSPManager::tspBTUtil </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classGraph.html">Graph</a> &amp;&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classVertex.html">Vertex</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>cost</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramname"><em>min_cost</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classVertex.html">Vertex</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>min_path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Test all possible paths to find the optimal solution Complexity: O(N!) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">graph</td><td><a class="el" href="classGraph.html">Graph</a> to be used </td></tr>
+    <tr><td class="paramname">path</td><td>Vector where the order of visited vertices is stored </td></tr>
+    <tr><td class="paramname">pos</td><td>Current position </td></tr>
+    <tr><td class="paramname">cost</td><td>Current cost </td></tr>
+    <tr><td class="paramname">min_cost</td><td>Lowest possible cost </td></tr>
+    <tr><td class="paramname">min_path</td><td>Path corresponding to the minimum cost </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/rui/Documentos/Faculdade/DA/DA_project_2/src/<a class="el" href="TSPManager_8h_source.html">TSPManager.h</a></li>
+<li>/home/rui/Documentos/Faculdade/DA/DA_project_2/src/<a class="el" href="TSPManager_8cpp.html">TSPManager.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

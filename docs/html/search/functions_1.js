@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['calculatedistance_92',['calculateDistance',['../classHaversine.html#ac662cdec219049036733e9bf6ce6e6a8',1,'Haversine']]]
+  ['calculatedistance_124',['calculateDistance',['../classHaversine.html#a837e0ec8610042bf068aaf6283c12b7d',1,'Haversine']]],
+  ['coordinate_125',['Coordinate',['../classCoordinate.html#aa828814ec086de1cd0f8f9beb688eb26',1,'Coordinate']]]
 ];
