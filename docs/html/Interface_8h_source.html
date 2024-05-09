@@ -72,20 +72,37 @@ $(function() {
 <a href="Interface_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef DA_PROJECT_2_INTERFACE_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define DA_PROJECT_2_INTERFACE_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="classInterface.html">    4</a></span>&#160;<span class="keyword">class </span><a class="code" href="classInterface.html">Interface</a> {</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="classInterface.html#a4406d74c75bdfe150bf72be1f1cda8b1">    6</a></span>&#160;    <a class="code" href="classInterface.html#a4406d74c75bdfe150bf72be1f1cda8b1">Interface</a>();</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classInterface.html#aac5af501e6b520f306c9c309a2da68e0">    8</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classInterface.html#aac5af501e6b520f306c9c309a2da68e0">run</a>();</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;};</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//DA_PROJECT_2_INTERFACE_H</span></div>
-<div class="ttc" id="aclassInterface_html"><div class="ttname"><a href="classInterface.html">Interface</a></div><div class="ttdef"><b>Definition:</b> Interface.h:4</div></div>
-<div class="ttc" id="aclassInterface_html_a4406d74c75bdfe150bf72be1f1cda8b1"><div class="ttname"><a href="classInterface.html#a4406d74c75bdfe150bf72be1f1cda8b1">Interface::Interface</a></div><div class="ttdeci">Interface()</div></div>
-<div class="ttc" id="aclassInterface_html_aac5af501e6b520f306c9c309a2da68e0"><div class="ttname"><a href="classInterface.html#aac5af501e6b520f306c9c309a2da68e0">Interface::run</a></div><div class="ttdeci">static void run()</div></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="TSPManager_8h.html">TSPManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classInterface.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classInterface.html">Interface</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classInterface.html#a4406d74c75bdfe150bf72be1f1cda8b1">   15</a></span>&#160;    <a class="code" href="classInterface.html#a4406d74c75bdfe150bf72be1f1cda8b1">Interface</a>();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classInterface.html#a090a950300a463d91f8f361d3b333906">run</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">static</span> <a class="code" href="classTSPManager.html">TSPManager</a> _TSPManager;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> displayLoadOptions();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> displayToyGraphOptions();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> displayFullyConnectedGraphOptions();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> displayRealWorldGraphOptions();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> displayMainMenu();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> chooseMainMenuOptions();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//DA_PROJECT_2_INTERFACE_H</span></div>
+<div class="ttc" id="aTSPManager_8h_html"><div class="ttname"><a href="TSPManager_8h.html">TSPManager.h</a></div></div>
+<div class="ttc" id="aclassInterface_html"><div class="ttname"><a href="classInterface.html">Interface</a></div><div class="ttdoc">Class that allows interaction with the user.</div><div class="ttdef"><b>Definition:</b> Interface.h:10</div></div>
+<div class="ttc" id="aclassInterface_html_a090a950300a463d91f8f361d3b333906"><div class="ttname"><a href="classInterface.html#a090a950300a463d91f8f361d3b333906">Interface::run</a></div><div class="ttdeci">static void run()</div><div class="ttdoc">Executes the program.</div><div class="ttdef"><b>Definition:</b> Interface.cpp:7</div></div>
+<div class="ttc" id="aclassInterface_html_a4406d74c75bdfe150bf72be1f1cda8b1"><div class="ttname"><a href="classInterface.html#a4406d74c75bdfe150bf72be1f1cda8b1">Interface::Interface</a></div><div class="ttdeci">Interface()</div><div class="ttdoc">Default constructor of the Interface class.</div></div>
+<div class="ttc" id="aclassTSPManager_html"><div class="ttname"><a href="classTSPManager.html">TSPManager</a></div><div class="ttdoc">Class representing a system for solving the Travelling Salesperson Problem.</div><div class="ttdef"><b>Definition:</b> TSPManager.h:20</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

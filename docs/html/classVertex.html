@@ -65,6 +65,7 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="classVertex-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Vertex Class Reference</div>  </div>
@@ -77,8 +78,9 @@ Collaboration diagram for Vertex:</div>
 <div class="dyncontent">
 <div class="center"><img src="classVertex__coll__graph.png" border="0" usemap="#aVertex_coll__map" alt="Collaboration graph"/></div>
 <map name="aVertex_coll__map" id="aVertex_coll__map">
-<area shape="rect" title=" " alt="" coords="13,5,77,32"/>
-<area shape="rect" href="classEdge.html" title=" " alt="" coords="18,109,72,136"/>
+<area shape="rect" title=" " alt="" coords="20,95,84,121"/>
+<area shape="rect" href="classEdge.html" title=" " alt="" coords="25,199,79,225"/>
+<area shape="rect" href="classCoordinate.html" title="Class that represents the coordinates of a vertex." alt="" coords="5,5,99,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -90,6 +92,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad4ccd48170a1530ec1db5eb306357a74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53a3a6d045bbc772246812364f72a08c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#a53a3a6d045bbc772246812364f72a08c">getInfo</a> () const</td></tr>
 <tr class="separator:a53a3a6d045bbc772246812364f72a08c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6ac2b0c9c84bdc87bfe4095a122d80d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCoordinate.html">Coordinate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#ae6ac2b0c9c84bdc87bfe4095a122d80d">getCoord</a> () const</td></tr>
+<tr class="separator:ae6ac2b0c9c84bdc87bfe4095a122d80d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa36ca926de23a6e7283be42e2930957c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#aa36ca926de23a6e7283be42e2930957c">getDist</a> () const</td></tr>
 <tr class="separator:aa36ca926de23a6e7283be42e2930957c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9858f2aa388d2bfb49d9df8f4504b5a0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classEdge.html">Edge</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#a9858f2aa388d2bfb49d9df8f4504b5a0">getAdj</a> () const</td></tr>
@@ -102,6 +106,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad7348af9376d4b9ada5ceeca3bd1b2b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e120e57da6af94892fae44e05868794"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">Edge</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#a6e120e57da6af94892fae44e05868794">getPath</a> () const</td></tr>
 <tr class="separator:a6e120e57da6af94892fae44e05868794"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5eaabb550273327000bd3236e03775f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#a5eaabb550273327000bd3236e03775f5">setCoord</a> (<a class="el" href="classCoordinate.html">Coordinate</a> coordinate)</td></tr>
+<tr class="separator:a5eaabb550273327000bd3236e03775f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6939bef79bfe5fe5bf77d9fd1bd70085"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#a6939bef79bfe5fe5bf77d9fd1bd70085">setDist</a> (double <a class="el" href="classVertex.html#a11d98611f5101fe7f46785d8b9c53f44">dist</a>)</td></tr>
 <tr class="separator:a6939bef79bfe5fe5bf77d9fd1bd70085"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84b20dae22321e5a729606885357b015"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classEdge.html">Edge</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#a84b20dae22321e5a729606885357b015">getIncoming</a> () const</td></tr>
@@ -116,6 +122,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abe4bc30005eec65e775d0cd51f456460"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac51ba74aa999d606370b2a3abc03c6bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">Edge</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#ac51ba74aa999d606370b2a3abc03c6bd">addEdge</a> (<a class="el" href="classVertex.html">Vertex</a> *dest, double <a class="el" href="classVertex.html#a11d98611f5101fe7f46785d8b9c53f44">dist</a>)</td></tr>
 <tr class="separator:ac51ba74aa999d606370b2a3abc03c6bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a226de1d0a532aba990f7fd8a9b8f9b6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEdge.html">Edge</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#a226de1d0a532aba990f7fd8a9b8f9b6a">findEdge</a> (<a class="el" href="classVertex.html">Vertex</a> *dest)</td></tr>
+<tr class="separator:a226de1d0a532aba990f7fd8a9b8f9b6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37a174a65c97bd548838c5d03961e735"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#a37a174a65c97bd548838c5d03961e735">removeEdge</a> (int in)</td></tr>
 <tr class="separator:a37a174a65c97bd548838c5d03961e735"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcde6d707aff7627df7adde8d8b74a89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#afcde6d707aff7627df7adde8d8b74a89">removeOutgoingEdges</a> ()</td></tr>
@@ -130,6 +138,8 @@ Protected Member Functions</h2></td></tr>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:ae45a7495e6f5325efedb4ee4cf509298"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#ae45a7495e6f5325efedb4ee4cf509298">info</a></td></tr>
 <tr class="separator:ae45a7495e6f5325efedb4ee4cf509298"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25273e11993c826085dba2d24d6c5d50"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCoordinate.html">Coordinate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#a25273e11993c826085dba2d24d6c5d50">coord</a> {0,0}</td></tr>
+<tr class="separator:a25273e11993c826085dba2d24d6c5d50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11d98611f5101fe7f46785d8b9c53f44"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#a11d98611f5101fe7f46785d8b9c53f44">dist</a> = 0</td></tr>
 <tr class="separator:a11d98611f5101fe7f46785d8b9c53f44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0be7a8d322f99d4812261af91c3e2178"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classEdge.html">Edge</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#a0be7a8d322f99d4812261af91c3e2178">adj</a></td></tr>
@@ -144,6 +154,13 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a4e83821f961f6eb63ad210260ba0e1e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d41654d7aee77d99edacca6a923f4ee"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classEdge.html">Edge</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#a2d41654d7aee77d99edacca6a923f4ee">incoming</a></td></tr>
 <tr class="separator:a2d41654d7aee77d99edacca6a923f4ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78ba760e405ba9f66129b3870065b48f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#a78ba760e405ba9f66129b3870065b48f">queueIndex</a> = 0</td></tr>
+<tr class="separator:a78ba760e405ba9f66129b3870065b48f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a6e8dd99e4d0d0f5083b2fb64743a8953"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVertex.html#a6e8dd99e4d0d0f5083b2fb64743a8953">MutablePriorityQueue&lt; Vertex &gt;</a></td></tr>
+<tr class="separator:a6e8dd99e4d0d0f5083b2fb64743a8953"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0bb108bd0f97441e5c393049d1921e3b"></a>
@@ -227,6 +244,24 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a226de1d0a532aba990f7fd8a9b8f9b6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a226de1d0a532aba990f7fd8a9b8f9b6a">&#9670;&nbsp;</a></span>findEdge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEdge.html">Edge</a> * Vertex::findEdge </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classVertex.html">Vertex</a> *&#160;</td>
+          <td class="paramname"><em>dest</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a9858f2aa388d2bfb49d9df8f4504b5a0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9858f2aa388d2bfb49d9df8f4504b5a0">&#9670;&nbsp;</a></span>getAdj()</h2>
 
@@ -235,6 +270,23 @@ Protected Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt; <a class="el" href="classEdge.html">Edge</a> * &gt; Vertex::getAdj </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae6ac2b0c9c84bdc87bfe4095a122d80d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6ac2b0c9c84bdc87bfe4095a122d80d">&#9670;&nbsp;</a></span>getCoord()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCoordinate.html">Coordinate</a> Vertex::getCoord </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -416,6 +468,24 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a5eaabb550273327000bd3236e03775f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5eaabb550273327000bd3236e03775f5">&#9670;&nbsp;</a></span>setCoord()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Vertex::setCoord </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCoordinate.html">Coordinate</a>&#160;</td>
+          <td class="paramname"><em>coordinate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a6939bef79bfe5fe5bf77d9fd1bd70085"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6939bef79bfe5fe5bf77d9fd1bd70085">&#9670;&nbsp;</a></span>setDist()</h2>
 
@@ -506,6 +576,29 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a6e8dd99e4d0d0f5083b2fb64743a8953"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e8dd99e4d0d0f5083b2fb64743a8953">&#9670;&nbsp;</a></span>MutablePriorityQueue&lt; Vertex &gt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classMutablePriorityQueue.html">MutablePriorityQueue</a>&lt; <a class="el" href="classVertex.html">Vertex</a> &gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a0be7a8d322f99d4812261af91c3e2178"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0be7a8d322f99d4812261af91c3e2178">&#9670;&nbsp;</a></span>adj</h2>
@@ -518,6 +611,28 @@ Protected Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt;<a class="el" href="classEdge.html">Edge</a> *&gt; Vertex::adj</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a25273e11993c826085dba2d24d6c5d50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25273e11993c826085dba2d24d6c5d50">&#9670;&nbsp;</a></span>coord</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCoordinate.html">Coordinate</a> Vertex::coord {0,0}</td>
         </tr>
       </table>
   </td>
@@ -650,6 +765,28 @@ Protected Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">bool Vertex::processing = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a78ba760e405ba9f66129b3870065b48f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78ba760e405ba9f66129b3870065b48f">&#9670;&nbsp;</a></span>queueIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Vertex::queueIndex = 0</td>
         </tr>
       </table>
   </td>

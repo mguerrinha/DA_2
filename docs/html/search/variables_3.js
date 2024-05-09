@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['latitude_132',['latitude',['../structHaversine_1_1Coordinates.html#a44e9e32b9d9cd7fb63b39e43dd213aba',1,'Haversine::Coordinates']]],
-  ['longitude_133',['longitude',['../structHaversine_1_1Coordinates.html#ab73f175de4137a22d9f5243e7622db7e',1,'Haversine::Coordinates']]]
+  ['incoming_186',['incoming',['../classVertex.html#a2d41654d7aee77d99edacca6a923f4ee',1,'Vertex']]],
+  ['indegree_187',['indegree',['../classVertex.html#a94ae99aae9b1a426feda5ecda70c598b',1,'Vertex']]],
+  ['info_188',['info',['../classVertex.html#ae45a7495e6f5325efedb4ee4cf509298',1,'Vertex']]]
 ];

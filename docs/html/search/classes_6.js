@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vertex_75',['Vertex',['../classVertex.html',1,'']]]
+  ['tspmanager_103',['TSPManager',['../classTSPManager.html',1,'']]]
 ];

@@ -2,5 +2,8 @@
 <area shape="rect" id="node1" title=" " alt="" coords="130,5,350,61"/>
 <area shape="rect" id="node2" href="$Graph_8cpp.html" title=" " alt="" coords="5,109,240,165"/>
 <area shape="rect" id="node3" href="$TSPManager_8h.html" title=" " alt="" coords="264,109,453,165"/>
-<area shape="rect" id="node4" href="$TSPManager_8cpp.html" title=" " alt="" coords="264,213,453,269"/>
+<area shape="rect" id="node4" href="$Interface_8h.html" title=" " alt="" coords="157,213,347,269"/>
+<area shape="rect" id="node7" href="$TSPManager_8cpp.html" title=" " alt="" coords="371,213,560,269"/>
+<area shape="rect" id="node5" href="$Interface_8cpp.html" title=" " alt="" coords="51,317,240,373"/>
+<area shape="rect" id="node6" href="$main_8cpp.html" title=" " alt="" coords="264,317,453,373"/>
 </map>

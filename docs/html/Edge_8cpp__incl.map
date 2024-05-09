@@ -1,8 +1,12 @@
 <map id="/home/rui/Documentos/Faculdade/DA/DA_project_2/src/data_structures/Edge.cpp" name="/home/rui/Documentos/Faculdade/DA/DA_project_2/src/data_structures/Edge.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="6,5,234,61"/>
-<area shape="rect" id="node2" href="$Edge_8h.html" title=" " alt="" coords="87,109,153,136"/>
-<area shape="rect" id="node3" href="$Vertex_8h.html" title=" " alt="" coords="82,184,158,211"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,259,64,285"/>
-<area shape="rect" id="node5" title=" " alt="" coords="89,259,151,285"/>
-<area shape="rect" id="node6" title=" " alt="" coords="176,259,256,285"/>
+<area shape="rect" id="node1" title=" " alt="" coords="245,5,473,61"/>
+<area shape="rect" id="node2" href="$Edge_8h.html" title=" " alt="" coords="325,109,392,136"/>
+<area shape="rect" id="node3" href="$Vertex_8h.html" title=" " alt="" coords="321,184,397,211"/>
+<area shape="rect" id="node4" href="$MutablePriorityQueue_8h.html" title=" " alt="" coords="5,259,181,285"/>
+<area shape="rect" id="node5" title=" " alt="" coords="121,333,183,360"/>
+<area shape="rect" id="node6" href="$Haversine_8h.html" title=" " alt="" coords="256,259,368,285"/>
+<area shape="rect" id="node8" href="$Coordinate_8h.html" title=" " alt="" coords="353,333,458,360"/>
+<area shape="rect" id="node9" title=" " alt="" coords="443,259,501,285"/>
+<area shape="rect" id="node10" title=" " alt="" coords="525,259,605,285"/>
+<area shape="rect" id="node7" title=" " alt="" coords="266,333,329,360"/>
 </map>

@@ -1,4 +1,7 @@
 <map id="/home/rui/Documentos/Faculdade/DA/DA_project_2/src/TSPManager.h" name="/home/rui/Documentos/Faculdade/DA/DA_project_2/src/TSPManager.h">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,195,61"/>
-<area shape="rect" id="node2" href="$TSPManager_8cpp.html" title=" " alt="" coords="5,109,195,165"/>
+<area shape="rect" id="node1" title=" " alt="" coords="219,5,408,61"/>
+<area shape="rect" id="node2" href="$Interface_8h.html" title=" " alt="" coords="112,109,301,165"/>
+<area shape="rect" id="node5" href="$TSPManager_8cpp.html" title=" " alt="" coords="325,109,515,165"/>
+<area shape="rect" id="node3" href="$Interface_8cpp.html" title=" " alt="" coords="5,213,195,269"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title=" " alt="" coords="219,213,408,269"/>
 </map>

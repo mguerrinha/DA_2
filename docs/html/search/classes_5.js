@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tspmanager_74',['TSPManager',['../classTSPManager.html',1,'']]]
+  ['mutablepriorityqueue_102',['MutablePriorityQueue',['../classMutablePriorityQueue.html',1,'']]]
 ];

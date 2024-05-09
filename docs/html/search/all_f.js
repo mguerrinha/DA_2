@@ -1,8 +1,11 @@
 var searchData=
 [
-  ['vertex_64',['Vertex',['../classVertex.html',1,'Vertex'],['../classVertex.html#a0bb108bd0f97441e5c393049d1921e3b',1,'Vertex::Vertex()']]],
-  ['vertex_2ecpp_65',['Vertex.cpp',['../Vertex_8cpp.html',1,'']]],
-  ['vertex_2eh_66',['Vertex.h',['../Vertex_8h.html',1,'']]],
-  ['vertexset_67',['vertexSet',['../classGraph.html#aa9b0a6d8ad43c5eabaca5a7140bcc8b6',1,'Graph']]],
-  ['visited_68',['visited',['../classVertex.html#aaef9f7de91b4b8f1752d391a1aae9c2e',1,'Vertex']]]
+  ['toradians_84',['toRadians',['../classHaversine.html#a9bbf9e3682b2084b47b9a6450873f78a',1,'Haversine']]],
+  ['tsp_5fbacktracking_85',['tsp_backtracking',['../classTSPManager.html#a37d4c32185bef2565fc78f9567cd756f',1,'TSPManager']]],
+  ['tsp_5fnearest_5fneighbour_86',['tsp_nearest_neighbour',['../classTSPManager.html#a3b657616172f4d8acbb1078f196977e1',1,'TSPManager']]],
+  ['tsp_5ftriangular_5fapprox_87',['tsp_triangular_approx',['../classTSPManager.html#a31b158c780aed20884fa25084f943d2a',1,'TSPManager']]],
+  ['tspbtutil_88',['tspBTUtil',['../classTSPManager.html#a6dd55e69392bb2502bb1f0a8e5a3443d',1,'TSPManager']]],
+  ['tspmanager_89',['TSPManager',['../classTSPManager.html',1,'TSPManager'],['../classTSPManager.html#aeed8e335671fb4703e7521b72d2a634b',1,'TSPManager::TSPManager()']]],
+  ['tspmanager_2ecpp_90',['TSPManager.cpp',['../TSPManager_8cpp.html',1,'']]],
+  ['tspmanager_2eh_91',['TSPManager.h',['../TSPManager_8h.html',1,'']]]
 ];
