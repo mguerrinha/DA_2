@@ -41,6 +41,10 @@ public:
 
     void tsp_triangular_approx();
 
+    std::vector<Edge*> computeGreedyMWPM(std::vector<std::vector<double>> matrix, const std::vector<Vertex*>& oddVertices);
+
+    void tsp_christofides_algorithm();
+
     void tsp_nearest_neighbour(int idx);
 };
 

@@ -123,3 +123,13 @@ void Vertex::setCoord(Coordinate coordinate) {
 Coordinate Vertex::getCoord() const {
     return this->coord;
 }
+
+void Vertex::setDegree(unsigned int c) {
+    this->degree = c;
+}
+
+unsigned int Vertex::getDegree() const {
+    return this->degree;
+}
+
+

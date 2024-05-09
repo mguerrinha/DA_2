@@ -57,6 +57,10 @@ public:
 
     friend class MutablePriorityQueue<Vertex>;
 
+    void setDegree(unsigned int c);
+
+    [[nodiscard]] unsigned int getDegree() const;
+
 protected:
     int info;
 
@@ -79,6 +83,8 @@ protected:
     void deleteEdge(Edge *edge);
 
     int queueIndex = 0; // required by MutablePriorityQueue
+
+    unsigned int degree = 0;
 };
 
 #endif //DA_PROJECT_2_VERTEX_H
