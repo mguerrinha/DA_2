@@ -202,6 +202,7 @@ int Interface::displayMainMenu() {
         std::cout << "---------- Main Menu -------------" << std::endl;
         std::cout << "1 --> TSP using Backtracking." << std::endl; // 4.1
         std::cout << "2 --> TSP using Triangular Approximation Heuristic." << std::endl; // 4.2
+        std::cout << "3 --> TSP using Christofides Algorithm." << std::endl; // 4.3
         std::cout << "4 --> TSP using Nearest Neighbour Heuristic." << std::endl; // 4.4
         std::cout << "0 --> Exit." << std::endl;
         std::cout << "Choose one option: ";
@@ -226,6 +227,8 @@ int Interface::displayMainMenu() {
 void Interface::chooseMainMenuOptions() {
     bool running = true;
     int choice, idx_choosed;
+    double time_used;
+    clock_t start, end;
     while (running) {
         choice = displayMainMenu();
         switch (choice) {
@@ -233,16 +236,35 @@ void Interface::chooseMainMenuOptions() {
                 running = false;
                 break;
             case 1:
+                start = clock();
                 _TSPManager.tsp_backtracking();
+                end = clock();
+                time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+                std::cout << "Funtion takes " << time_used << " seconds to execute" << std::endl;
                 break;
             case 2:
+                start = clock();
                 _TSPManager.tsp_triangular_approx();
+                end = clock();
+                time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+                std::cout << "Funtion takes " << time_used << " seconds to execute" << std::endl;
+                break;
+            case 3:
+                start = clock();
+                _TSPManager.tsp_christofides_algorithm();
+                end = clock();
+                time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+                std::cout << "Function takes " << time_used << " seconds tp execute" << std::endl;
                 break;
             case 4:
                 std::cout << "Insert the desired index. ";
                 std::cin >> idx_choosed;
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                start = clock();
                 _TSPManager.tsp_nearest_neighbour(idx_choosed);
+                end = clock();
+                time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+                std::cout << "Funtion takes " << time_used << " seconds to execute" << std::endl;
                 break;
             default:
                 break;

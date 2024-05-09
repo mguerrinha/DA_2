@@ -133,20 +133,23 @@ std::vector<Vertex *> TSPManager::prim(Graph* g) { // Ao contrário do Kruskal, 
 
     vertices[0]->setDist(0);
     q.insert(vertices[0]);
-
+    std::vector<Vertex*> mst;
     while (!q.empty()) {
         Vertex *v = q.extractMin(); // Extrai o vertex com a mínima distância possível
         v->setVisited(true);
+        mst.push_back(v);
 
         for (Vertex *w : vertices) {  // Iterar sobre todos os vértices para garantir a verificação completa
             if (v != w && !w->isVisited()) {  // Evita auto-loop e verifica apenas vértices não visitados
                 Edge *e = v->findEdge(w);
                 double dist = (e != nullptr) ? e->getDist() : Haversine::calculateDistance(v->getCoord(), w->getCoord());
-
+                _TSPSystem.addBidirectionalEdge(v->getInfo(), w->getInfo(), dist);
+                e = v->findEdge(w);
                 if (dist < w->getDist()) {
                     double oldDist = w->getDist(); // Salva distância antiga
                     w->setDist(dist); // Atualiza a distância do vertex
                     w->setPath(e);
+                    e->setSelected(true);
 
                     if (oldDist == std::numeric_limits<double>::max()) {
                         q.insert(w); // Se a distância for infinita, não pertence à queue
@@ -155,14 +158,6 @@ std::vector<Vertex *> TSPManager::prim(Graph* g) { // Ao contrário do Kruskal, 
                     }
                 }
             }
-        }
-    }
-
-    // Coleta os vertex pertences à MST
-    std::vector<Vertex *> mst;
-    for(Vertex* v : vertices) {
-        if(v->isVisited()) {
-            mst.push_back(v);
         }
     }
     return mst;
@@ -224,6 +219,130 @@ void TSPManager::tsp_triangular_approx() {
     }
     std::cout << std::endl;
     std::cout << "Total Cost of TSP Tour: " << tourCost << std::endl;
+}
+
+bool edgeCompare(Edge* a, Edge* b) {
+    return a->getDist() < b->getDist();
+}
+
+std::vector<Edge*> TSPManager::computeGreedyMWPM(std::vector<std::vector<double>> matrix, const std::vector<Vertex*>& oddVertices) {
+    std::vector<Edge*> edges;
+
+    for (int i = 0; i < oddVertices.size(); i++) {
+        for (int j = i+1; j < oddVertices.size(); j++) {
+            if (matrix[i][j] > 0) {
+                edges.push_back(oddVertices[i]->findEdge(oddVertices[j]));
+            }
+        }
+    }
+
+    // Sort edges by weight
+    std::sort(edges.begin(), edges.end(), edgeCompare);
+
+    std::vector<Edge*> result;
+    for(Edge* e : edges) {
+        e->getDest()->setProcesssing(false);
+        e->getOrig()->setProcesssing(false);
+    }
+
+    // Pick minimum weight edges while ensuring no vertex is matched more than once
+    for (Edge* e : edges) {
+
+        if (!e->getOrig()->isProcessing() && !e->getDest()->isProcessing()) {
+            result.push_back(e);
+            e->setSelected(true);
+            e->getDest()->setProcesssing(true);
+            e->getOrig()->setProcesssing(true);
+        }
+    }
+
+    return result;
+}
+
+void TSPManager::tsp_christofides_algorithm() {
+    for (Vertex* vertex : _TSPSystem.getVertexSet()) {
+        vertex->setProcesssing(false);
+        vertex->setVisited(false);
+        vertex->setDegree(0);
+        for (Edge* edge : vertex->getAdj()) {
+            edge->setSelected(false);
+        }
+    }
+
+    std::vector<Vertex *> mst = prim(&_TSPSystem);
+    mst[0]->setPath(mst.back()->findEdge(mst[0]));
+    std::vector<Edge*> edges;
+    for (Vertex * v : mst) {
+        Edge* edge = v->getPath();
+        edge->setSelected(true);
+        edges.push_back(edge);
+        edge->getOrig()->setDegree(edge->getOrig()->getDegree()+1);
+        edge->getDest()->setDegree(edge->getDest()->getDegree()+1);
+    }
+
+    std::vector<Vertex *> odd_degree_vertices;
+    for (Vertex* vertex : mst) {
+        if(vertex->getDegree() % 2 == 1) {
+            odd_degree_vertices.push_back(vertex);
+        }
+    }
+
+    std::vector<std::vector<double>> matrix (odd_degree_vertices.size(), std::vector<double>(odd_degree_vertices.size(), 0));
+    for (int row = 0; row < odd_degree_vertices.size(); row++) {
+        for (int col = 0; col < odd_degree_vertices.size(); col++) {
+            if (row == col) {
+                matrix[row][col] = 0;
+            }
+            else {
+                Edge* edge = odd_degree_vertices[row]->findEdge(odd_degree_vertices[col]);
+                matrix[row][col] = (edge != nullptr) ? edge->getDist() : Haversine::calculateDistance(odd_degree_vertices[row]->getCoord(), odd_degree_vertices[col]->getCoord());
+                _TSPSystem.addBidirectionalEdge(odd_degree_vertices[row]->getInfo(), odd_degree_vertices[col]->getInfo(), matrix[row][col]);
+            }
+        }
+    }
+
+    std::vector<Edge*> edgesaux = computeGreedyMWPM(matrix, odd_degree_vertices);
+
+    for (Edge* edge : edgesaux) {
+        edges.push_back(edge);
+    }
+    for (Vertex* v : _TSPSystem.getVertexSet()) {
+        v->setVisited(false);
+    }
+    std::vector<int> path;
+    unsigned int n = _TSPSystem.getVertexSet().size();
+    Vertex* auxVertex = _TSPSystem.getVertexSet().at(0);
+    path.push_back(auxVertex->getInfo());
+    n--;
+    double totalCost = 0;
+    while (n > 0) {
+        for (Edge* edge : auxVertex->getAdj()) {
+            if (edge->isSelected() && !edge->getDest()->isVisited()) {
+                auxVertex = edge->getDest();
+                edge->getDest()->setVisited(true);
+                path.push_back(edge->getDest()->getInfo());
+                totalCost += edge->getDist();
+                n--;
+            }
+        }
+    }
+    path.push_back(path[0]);
+    Edge* e = _TSPSystem.findVertex(path[0])->findEdge(_TSPSystem.findVertex(path.back()));
+    totalCost += (e != nullptr) ? e->getDist() : Haversine::calculateDistance(_TSPSystem.findVertex(path[0])->getCoord(), _TSPSystem.findVertex(path.back())->getCoord());
+
+    int aux = 0;
+    std::cout << "Path: ";
+    for (int v : path) {
+        std::cout << v;
+        aux++;
+        if (aux == path.size()) continue;
+        else {
+            std::cout << " -> ";
+        }
+    }
+    std::cout << std::endl;
+    std::cout << "Total Cost: " << totalCost << std::endl;
+
 }
 
 void TSPManager::tsp_nearest_neighbour(int idx) {
