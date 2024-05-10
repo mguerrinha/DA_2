@@ -236,7 +236,6 @@ std::vector<Edge*> TSPManager::computeGreedyMWPM(std::vector<std::vector<double>
         }
     }
 
-    // Sort edges by weight
     std::sort(edges.begin(), edges.end(), edgeCompare);
 
     std::vector<Edge*> result;
@@ -245,7 +244,6 @@ std::vector<Edge*> TSPManager::computeGreedyMWPM(std::vector<std::vector<double>
         e->getOrig()->setProcesssing(false);
     }
 
-    // Pick minimum weight edges while ensuring no vertex is matched more than once
     for (Edge* e : edges) {
 
         if (!e->getOrig()->isProcessing() && !e->getDest()->isProcessing()) {

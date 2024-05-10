@@ -114,14 +114,25 @@ public:
     void tsp_triangular_approx();
 
     /**
+     * @brief Auxiliary function for finding a minimum-weight perfect match (using a greedy way)
+     * Complexity: O(N^2 + 2E)
+     * @param matrix represents a weighted adjacency matrix
+     * @param oddVertices vector to store vertices with odd degree
+     * @return Minimum-weight perfect match
+     */
+    std::vector<Edge*> computeGreedyMWPM(std::vector<std::vector<double>> matrix, const std::vector<Vertex*>& oddVertices);
+
+    /**
+     * @brief Christofides algorithm for finding approximate solutions to the TSP
+     * Complexity: O(VE + (E * logV) + 3V + N^2 + (N^2 + 2E) + NE)
+     */
+    void tsp_christofides_algorithm();
+
+    /**
      * @brief Nearest neighbor heuristic to calculate a non-optimal minimum cost for the TSP
      * Complexity: O(V + N * E + N)
      * @param idx Starting vertex
      */
-    std::vector<Edge*> computeGreedyMWPM(std::vector<std::vector<double>> matrix, const std::vector<Vertex*>& oddVertices);
-
-    void tsp_christofides_algorithm();
-
     void tsp_nearest_neighbour(int idx);
 };
 

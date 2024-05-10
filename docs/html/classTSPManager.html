@@ -112,6 +112,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a31b158c780aed20884fa25084f943d2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSPManager.html#a31b158c780aed20884fa25084f943d2a">tsp_triangular_approx</a> ()</td></tr>
 <tr class="memdesc:a31b158c780aed20884fa25084f943d2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the Triangular Approximation Heuristic Complexity: O((E * logV) + 2V + E + 2N)  <a href="classTSPManager.html#a31b158c780aed20884fa25084f943d2a">More...</a><br /></td></tr>
 <tr class="separator:a31b158c780aed20884fa25084f943d2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9302fd27c1372ca341674e81ba60514c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classEdge.html">Edge</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSPManager.html#a9302fd27c1372ca341674e81ba60514c">computeGreedyMWPM</a> (std::vector&lt; std::vector&lt; double &gt;&gt; matrix, const std::vector&lt; <a class="el" href="classVertex.html">Vertex</a> * &gt; &amp;oddVertices)</td></tr>
+<tr class="memdesc:a9302fd27c1372ca341674e81ba60514c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Auxiliary function for finding a minimum-weight perfect match (using a greedy way) Complexity: O(N^2 + 2E)  <a href="classTSPManager.html#a9302fd27c1372ca341674e81ba60514c">More...</a><br /></td></tr>
+<tr class="separator:a9302fd27c1372ca341674e81ba60514c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a583190bdf6c3257c2b8536981693b94f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSPManager.html#a583190bdf6c3257c2b8536981693b94f">tsp_christofides_algorithm</a> ()</td></tr>
+<tr class="memdesc:a583190bdf6c3257c2b8536981693b94f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Christofides algorithm for finding approximate solutions to the TSP Complexity: O(VE + (E * logV) + 3V + N^2 + (N^2 + 2E) + NE)  <a href="classTSPManager.html#a583190bdf6c3257c2b8536981693b94f">More...</a><br /></td></tr>
+<tr class="separator:a583190bdf6c3257c2b8536981693b94f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b657616172f4d8acbb1078f196977e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTSPManager.html#a3b657616172f4d8acbb1078f196977e1">tsp_nearest_neighbour</a> (int idx)</td></tr>
 <tr class="memdesc:a3b657616172f4d8acbb1078f196977e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nearest neighbor heuristic to calculate a non-optimal minimum cost for the TSP Complexity: O(V + N * E + N)  <a href="classTSPManager.html#a3b657616172f4d8acbb1078f196977e1">More...</a><br /></td></tr>
 <tr class="separator:a3b657616172f4d8acbb1078f196977e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,6 +153,44 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9302fd27c1372ca341674e81ba60514c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9302fd27c1372ca341674e81ba60514c">&#9670;&nbsp;</a></span>computeGreedyMWPM()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classEdge.html">Edge</a> * &gt; TSPManager::computeGreedyMWPM </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; double &gt;&gt;&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classVertex.html">Vertex</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>oddVertices</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Auxiliary function for finding a minimum-weight perfect match (using a greedy way) Complexity: O(N^2 + 2E) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrix</td><td>represents a weighted adjacency matrix </td></tr>
+    <tr><td class="paramname">oddVertices</td><td>vector to store vertices with odd degree </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Minimum-weight perfect match </dd></dl>
+
+</div>
+</div>
 <a id="a1b529ea17f1345a2c86142a20a1618ed"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1b529ea17f1345a2c86142a20a1618ed">&#9670;&nbsp;</a></span>getTourCost()</h2>
 
@@ -408,6 +452,25 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Backtracking algorithm to obtain the optimal result for TSP (only for small graphs) Complexity: O(N! + N) </p>
+
+</div>
+</div>
+<a id="a583190bdf6c3257c2b8536981693b94f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a583190bdf6c3257c2b8536981693b94f">&#9670;&nbsp;</a></span>tsp_christofides_algorithm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TSPManager::tsp_christofides_algorithm </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Christofides algorithm for finding approximate solutions to the TSP Complexity: O(VE + (E * logV) + 3V + N^2 + (N^2 + 2E) + NE) </p>
 
 </div>
 </div>
