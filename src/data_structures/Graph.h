@@ -24,14 +24,14 @@ public:
 
     [[nodiscard]] bool removeEdge(const int &source, const int &dest) const;
 
-    [[nodiscard]] std::vector<Vertex *> getVertexSet() const;
+    std::unordered_map<int, Vertex*> getVertexSet() const;
 
     bool addBidirectionalEdge(const int &sourc, const int &dest, double dist);
 
     [[nodiscard]] int findVertexIdx(const int &in) const;
 
 protected:
-    std::vector<Vertex *> vertexSet;
+    std::unordered_map<int, Vertex*> vertexSet;
 };
 
 #endif //DA_PROJECT_2_GRAPH_H
