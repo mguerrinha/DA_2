@@ -7,6 +7,8 @@ TSPManager Interface::_TSPManager;
 void Interface::run() {
     bool running = true;
     int choice1, choice2;
+    double time_used;
+    clock_t start, end;
     std::cout << "Welcome to our TSP system management!" << std::endl;
 
     while (running) {
@@ -56,16 +58,28 @@ void Interface::run() {
                         run();
                         break;
                     case 1:
+                        start = clock();
                         _TSPManager.load_graph("../dataset/Real-world Graphs/graph1/edges.csv");
                         _TSPManager.load_coordinates_real("../dataset/Real-world Graph/graph1/nodes.csv");
+                        end = clock();
+                        time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+                        std::cout << "Function takes " << time_used << " seconds to execute." << std::endl;
                         break;
                     case 2:
+                        start = clock();
                         _TSPManager.load_graph("../dataset/Real-world Graphs/graph2/edges.csv");
                         _TSPManager.load_coordinates_real("../dataset/Real-world Graph/graph2/nodes.csv");
+                        end = clock();
+                        time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+                        std::cout << "Function takes " << time_used << " seconds to execute." << std::endl;
                         break;
                     case 3:
+                        start = clock();
                         _TSPManager.load_graph("../dataset/Real-world Graphs/graph3/edges.csv");
                         _TSPManager.load_coordinates_real("../dataset/Real-world Graph/graph3/nodes.csv");
+                        end = clock();
+                        time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+                        std::cout << "Function takes " << time_used << " seconds to execute." << std::endl;
                         break;
                     default:
                         break;
@@ -240,21 +254,21 @@ void Interface::chooseMainMenuOptions() {
                 _TSPManager.tsp_backtracking();
                 end = clock();
                 time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-                std::cout << "Funtion takes " << time_used << " seconds to execute" << std::endl;
+                std::cout << "Function takes " << time_used << " seconds to execute." << std::endl;
                 break;
             case 2:
                 start = clock();
                 _TSPManager.tsp_triangular_approx();
                 end = clock();
                 time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-                std::cout << "Funtion takes " << time_used << " seconds to execute" << std::endl;
+                std::cout << "Function takes " << time_used << " seconds to execute." << std::endl;
                 break;
             case 3:
                 start = clock();
                 _TSPManager.tsp_christofides_algorithm();
                 end = clock();
                 time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-                std::cout << "Function takes " << time_used << " seconds tp execute" << std::endl;
+                std::cout << "Function takes " << time_used << " seconds tp execute." << std::endl;
                 break;
             case 4:
                 std::cout << "Insert the desired index. ";
@@ -264,7 +278,7 @@ void Interface::chooseMainMenuOptions() {
                 _TSPManager.tsp_nearest_neighbour(idx_choosed);
                 end = clock();
                 time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-                std::cout << "Funtion takes " << time_used << " seconds to execute" << std::endl;
+                std::cout << "Function takes " << time_used << " seconds to execute." << std::endl;
                 break;
             default:
                 break;

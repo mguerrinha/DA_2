@@ -121,12 +121,12 @@ void TSPManager::tsp_backtracking() { // backtracking testa todas as possibilida
 
 std::vector<Vertex *> TSPManager::prim(Graph* g) { // Ao contrário do Kruskal, retira sempre a edge com menor distância que seja adjacente a um dos vertex já selecionados
     if(g == nullptr) return {};
+    std::unordered_map<int, Vertex*> vertices = g->getVertexSet();
 
-    std::vector<Vertex *> vertices = g->getVertexSet();
-    for(Vertex* v : vertices) {
-        v->setDist(std::numeric_limits<double>::max());
-        v->setVisited(false);
-        v->setPath(nullptr);
+    for(auto v : vertices) {
+        v.second->setDist(std::numeric_limits<double>::max());
+        v.second->setVisited(false);
+        v.second->setPath(nullptr);
     }
 
     MutablePriorityQueue<Vertex> q;
@@ -139,22 +139,22 @@ std::vector<Vertex *> TSPManager::prim(Graph* g) { // Ao contrário do Kruskal, 
         v->setVisited(true);
         mst.push_back(v);
 
-        for (Vertex *w : vertices) {  // Iterar sobre todos os vértices para garantir a verificação completa
-            if (v != w && !w->isVisited()) {  // Evita auto-loop e verifica apenas vértices não visitados
-                Edge *e = v->findEdge(w);
-                double dist = (e != nullptr) ? e->getDist() : Haversine::calculateDistance(v->getCoord(), w->getCoord());
-                _TSPSystem.addBidirectionalEdge(v->getInfo(), w->getInfo(), dist);
-                e = v->findEdge(w);
-                if (dist < w->getDist()) {
-                    double oldDist = w->getDist(); // Salva distância antiga
-                    w->setDist(dist); // Atualiza a distância do vertex
-                    w->setPath(e);
+        for (auto w : vertices) {  // Iterar sobre todos os vértices para garantir a verificação completa
+            if (v != w.second && !w.second->isVisited()) {  // Evita auto-loop e verifica apenas vértices não visitados
+                Edge *e = v->findEdge(w.second);
+                double dist = (e != nullptr) ? e->getDist() : Haversine::calculateDistance(v->getCoord(), w.second->getCoord());
+                _TSPSystem.addBidirectionalEdge(v->getInfo(), w.first, dist);
+                e = v->findEdge(w.second);
+                if (dist < w.second->getDist()) {
+                    double oldDist = w.second->getDist(); // Salva distância antiga
+                    w.second->setDist(dist); // Atualiza a distância do vertex
+                    w.second->setPath(e);
                     e->setSelected(true);
 
                     if (oldDist == std::numeric_limits<double>::max()) {
-                        q.insert(w); // Se a distância for infinita, não pertence à queue
+                        q.insert(w.second); // Se a distância for infinita, não pertence à queue
                     } else {
-                        q.decreaseKey(w); // Pode ou não ganhar prioridade conforme a atualização do seu valor do Dist (maior prioridade se tiver um valor menor)
+                        q.decreaseKey(w.second); // Pode ou não ganhar prioridade conforme a atualização do seu valor do Dist (maior prioridade se tiver um valor menor)
                     }
                 }
             }
@@ -258,11 +258,11 @@ std::vector<Edge*> TSPManager::computeGreedyMWPM(std::vector<std::vector<double>
 }
 
 void TSPManager::tsp_christofides_algorithm() {
-    for (Vertex* vertex : _TSPSystem.getVertexSet()) {
-        vertex->setProcesssing(false);
-        vertex->setVisited(false);
-        vertex->setDegree(0);
-        for (Edge* edge : vertex->getAdj()) {
+    for (auto vertex : _TSPSystem.getVertexSet()) {
+        vertex.second->setProcesssing(false);
+        vertex.second->setVisited(false);
+        vertex.second->setDegree(0);
+        for (Edge* edge : vertex.second->getAdj()) {
             edge->setSelected(false);
         }
     }
@@ -304,8 +304,8 @@ void TSPManager::tsp_christofides_algorithm() {
     for (Edge* edge : edgesaux) {
         edges.push_back(edge);
     }
-    for (Vertex* v : _TSPSystem.getVertexSet()) {
-        v->setVisited(false);
+    for (auto v : _TSPSystem.getVertexSet()) {
+        v.second->setVisited(false);
     }
     std::vector<int> path;
     unsigned int n = _TSPSystem.getVertexSet().size();
@@ -347,8 +347,8 @@ void TSPManager::tsp_nearest_neighbour(int idx) {
     std::vector<int> path;
     int cnt_num = 0; // incrementado a cada vertex visited
     int num_nodes = _TSPSystem.getVertexSet().size();
-    for (Vertex* v : _TSPSystem.getVertexSet()) {
-        v->setVisited(false);
+    for (auto v : _TSPSystem.getVertexSet()) {
+        v.second->setVisited(false);
     }
     Vertex* start_vertex = _TSPSystem.findVertex(idx);
     Vertex* initial_vertex = start_vertex; // salvar o vertex inicial (idx)
