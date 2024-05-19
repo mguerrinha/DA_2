@@ -23,6 +23,8 @@ public:
 
     void setReverse(Edge *reverse);
 
+
+
 protected:
     Vertex * dest;
 

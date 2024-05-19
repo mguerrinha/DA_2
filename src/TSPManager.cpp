@@ -1,5 +1,8 @@
 #include "TSPManager.h"
 #include <iomanip>
+#include <stack>
+#include <unordered_set>
+#include <set>
 
 TSPManager::TSPManager() = default;
 
@@ -167,7 +170,7 @@ double TSPManager::getTourCost(const std::vector<Vertex*>& tour) {
     double totalCost = 0.0;
     for (size_t i = 0; i < tour.size() - 1; ++i) {
         Vertex* current = tour[i];
-        Vertex* next = tour[i + 1];
+        Vertex* next = tour[i+1];
         Edge* edge = current->findEdge(next);
         if (edge) {
             totalCost += edge->getDist();
@@ -185,7 +188,7 @@ void TSPManager::preorderTraversal(Vertex* root, std::vector<Vertex*>& tour) { /
 
     for (Edge* edge : root->getAdj()) {
         Vertex* child = edge->getDest();
-        if (!child->isVisited()) {
+        if (!child->isVisited() && child->getPath()->getOrig() == root) {
             preorderTraversal(child, tour);
         }
     }
@@ -224,6 +227,7 @@ void TSPManager::tsp_triangular_approx() {
 bool edgeCompare(Edge* a, Edge* b) {
     return a->getDist() < b->getDist();
 }
+
 
 std::vector<Edge*> TSPManager::computeGreedyMWPM(std::vector<std::vector<double>> matrix, const std::vector<Vertex*>& oddVertices) {
     std::vector<Edge*> edges;
@@ -268,9 +272,22 @@ void TSPManager::tsp_christofides_algorithm() {
     }
 
     std::vector<Vertex *> mst = prim(&_TSPSystem);
-    mst[0]->setPath(mst.back()->findEdge(mst[0]));
+    std::vector<Vertex*> tour;
+
+
+    for (Vertex* vertex : mst) {
+        vertex->setVisited(false);
+    }
+
+    preorderTraversal(mst[0], tour);
+
+    if (!tour.empty()) {
+        tour[0]->setPath(tour.back()->findEdge(tour[0]));
+        tour.push_back(tour[0]);
+    }
+
     std::vector<Edge*> edges;
-    for (Vertex * v : mst) {
+    for (Vertex * v : tour) {
         Edge* edge = v->getPath();
         edge->setSelected(true);
         edges.push_back(edge);
@@ -279,7 +296,7 @@ void TSPManager::tsp_christofides_algorithm() {
     }
 
     std::vector<Vertex *> odd_degree_vertices;
-    for (Vertex* vertex : mst) {
+    for (Vertex* vertex : tour) {
         if(vertex->getDegree() % 2 == 1) {
             odd_degree_vertices.push_back(vertex);
         }
@@ -307,10 +324,10 @@ void TSPManager::tsp_christofides_algorithm() {
     for (auto v : _TSPSystem.getVertexSet()) {
         v.second->setVisited(false);
     }
-    std::vector<int> path;
+    std::vector<Vertex*> path;
     unsigned int n = _TSPSystem.getVertexSet().size();
     Vertex* auxVertex = _TSPSystem.getVertexSet().at(0);
-    path.push_back(auxVertex->getInfo());
+    path.push_back(auxVertex);
     n--;
     double totalCost = 0;
     while (n > 0) {
@@ -318,22 +335,22 @@ void TSPManager::tsp_christofides_algorithm() {
             if (edge->isSelected() && !edge->getDest()->isVisited()) {
                 auxVertex = edge->getDest();
                 edge->getDest()->setVisited(true);
-                path.push_back(edge->getDest()->getInfo());
+                path.push_back(edge->getDest());
                 totalCost += edge->getDist();
                 n--;
             }
         }
     }
     path.push_back(path[0]);
-    Edge* e = _TSPSystem.findVertex(path[0])->findEdge(_TSPSystem.findVertex(path.back()));
-    totalCost += (e != nullptr) ? e->getDist() : Haversine::calculateDistance(_TSPSystem.findVertex(path[0])->getCoord(), _TSPSystem.findVertex(path.back())->getCoord());
+    Edge* e = path[0]->findEdge(path.back());
+    totalCost += (e != nullptr) ? e->getDist() : Haversine::calculateDistance(path[0]->getCoord(), path.back()->getCoord());
 
-    int aux = 0;
+    int aux1 = 0;
     std::cout << "Path: ";
-    for (int v : path) {
-        std::cout << v;
-        aux++;
-        if (aux == path.size()) continue;
+    for (Vertex* v : tour) {
+        std::cout << v->getInfo();
+        aux1++;
+        if (aux1 == tour.size()) continue;
         else {
             std::cout << " -> ";
         }
@@ -344,7 +361,7 @@ void TSPManager::tsp_christofides_algorithm() {
 }
 
 void TSPManager::tsp_nearest_neighbour(int idx) {
-    std::vector<int> path;
+    std::vector<Vertex*> path;
     int cnt_num = 0; // incrementado a cada vertex visited
     int num_nodes = _TSPSystem.getVertexSet().size();
     for (auto v : _TSPSystem.getVertexSet()) {
@@ -353,11 +370,11 @@ void TSPManager::tsp_nearest_neighbour(int idx) {
     Vertex* start_vertex = _TSPSystem.findVertex(idx);
     Vertex* initial_vertex = start_vertex; // salvar o vertex inicial (idx)
     start_vertex->setVisited(true);
-    path.push_back(start_vertex->getInfo());
+    path.push_back(start_vertex);
     cnt_num++;
     double totalCost = 0;
 
-    while (cnt_num < num_nodes) { // termina quando todos os vertex forem visitados
+    while (cnt_num <= num_nodes) { // termina quando todos os vertex forem visitados
         double currentCost = std::numeric_limits<double>::max();
         Edge * currentEdge = nullptr;
 
@@ -375,23 +392,23 @@ void TSPManager::tsp_nearest_neighbour(int idx) {
         totalCost += currentCost;
         start_vertex = currentEdge->getDest();
         start_vertex->setVisited(true);
-        path.push_back(start_vertex->getInfo());
+        path.push_back(start_vertex);
         cnt_num++;
     }
 
-    int lastIdx = path[(path.size() -1)];
-    if (_TSPSystem.findVertex(lastIdx)->findEdge(initial_vertex) == nullptr) {
+    Vertex* lastIdx = path[(path.size() -1)];
+    if (lastIdx->findEdge(initial_vertex) == nullptr) {
         std::cout << "No path found." << std::endl;
         return;
     } else {
-        totalCost += _TSPSystem.findVertex(lastIdx)->findEdge(initial_vertex)->getDist();
+        totalCost += lastIdx->findEdge(initial_vertex)->getDist();
     }
-    path.push_back(initial_vertex->getInfo());
+    path.push_back(initial_vertex);
 
     int aux = 0;
     std::cout << "Path: ";
-    for (int v : path) {
-        std::cout << v;
+    for (Vertex* v : path) {
+        std::cout << v->getInfo();
         aux++;
         if (aux == path.size()) continue;
         else {
