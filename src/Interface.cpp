@@ -268,7 +268,7 @@ void Interface::chooseMainMenuOptions() {
                 _TSPManager.tsp_christofides_algorithm();
                 end = clock();
                 time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-                std::cout << "Function takes " << time_used << " seconds tp execute." << std::endl;
+                std::cout << "Function takes " << time_used << " seconds to execute." << std::endl;
                 break;
             case 4:
                 std::cout << "Insert the desired index. ";
