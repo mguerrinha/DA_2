@@ -1,5 +1,5 @@
 # Travelling Salesperson Problem (TSP) Manager
-## Grade: 12,9/20
+## Grade: 12.9/20
 
 This project was conducted in the **second year, second semester** as part of our Algorithm Design course. The objective was to develop a system that solves the **Travelling Salesperson Problem (TSP)** using various algorithms and heuristics, applying them to graph structures representing distances between cities or points of interest.
 
